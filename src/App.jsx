@@ -1,8 +1,13 @@
+import React from "react"
+import Login from "./auth/Login"
+
 function App() {
+  const [user, setUser] = React.useState();
+  const [auth, setAuthState] = React.useState();
 
   return (
     <>
-      <div className="text-5xl text-center">Hello MusicApp</div>
+      <Login/>
     </>
   )
 }
