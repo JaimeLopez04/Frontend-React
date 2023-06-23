@@ -1,12 +1,19 @@
+import { FaSearch } from 'react-icons/fa';
+
+
 const SearchBar = () => {
   return (
-    <div className="absolute top-[1rem] flex justify-center items-center left-[22.5rem] 
-    w-60 h-10 bg-white bg-opacity-10 rounded-2xl border-white border-opacity-20 marging-left-flex">
-        hi
-    </div>
+      <div>
+        <div className='flex flex-row items-center px-5'>
+          <FaSearch className="text-purple text-2xl font-bold"/>
+                    <input 
+                        className='w-96 h-11 border-b border-purple border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple focus:outline-1'
+                        placeholder=" Artistas, canciones o podcasts"
+                    />
+                </div>
+      </div>
   )
 }
 
 export default SearchBar
-
 
