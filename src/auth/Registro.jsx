@@ -7,7 +7,7 @@ function Registro() {
         <div className='flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-900 via-purple-900 to-black'>
             <div className='w-full flex items-center justify-center lg:w-1/2' >            
                 <div className='bg-black/20 backdrop-blur-lg px-10  py-8 rounded-2xl'>
-                    <div className='block flex items-center justify-center'>
+                    <div className=' flex items-center justify-center'>
                         <img className='w-16' src={Logo} alt='Logo' />
                         <h1 className='text-5xl font-semibold text-center'>Bienvenido</h1>
                     </div>
