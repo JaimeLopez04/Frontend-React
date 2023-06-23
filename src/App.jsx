@@ -1,6 +1,9 @@
 import React from "react"
+import Sidebar from "./Components/side-bar"
+import SearchBar from "./Components/SearchBar"
 import Login from "./auth/Login"
 import Registro from "./auth/Registro";
+
 
 function App() {
     const [user, setUser] = React.useState(null);
@@ -9,7 +12,20 @@ function App() {
     return (
         <>
             {/* <Login/> */}
-            <Registro/>
+            <div className="bg-black flex flex-row" >
+
+            {/* Barra Lateral */}
+                  <div className="w-full h-screen bg-back object-cover flex items-center">
+                  <Sidebar/>
+            </div>
+
+            <div className="left-[5rm]">
+                    <SearchBar/>
+            </div>
+
+
+
+             <Registro/>
         </>
     )
 
