@@ -1,39 +1,58 @@
-import { FiUser, FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"
-import { IoMdList } from "react-icons/io"
 import { IoIosAddCircle } from "react-icons/io"
 import { IoIosSettings } from 'react-icons/io'
-// import { BsFolder} from "react-icons/bs";   //Icono chido de carpeta
+import { FaHeadphones } from 'react-icons/fa';
+import { BsMusicNoteBeamed } from 'react-icons/bs';
+import { FaUser } from 'react-icons/fa';
+import { BsHouseFill } from 'react-icons/bs';
 
 export const datas = [
   {
     id: 1,
-    icon: <FiUser />,
-    text: "Perfil",
+    icon: <BsHouseFill size={24}/>,
+    text: "Inicio",
   },
   {
     id: 2,
-    icon: <FaHeart />,
-    text: "Mis favoritos",
+    icon: <FaHeadphones size={24}/>,
+    text: "Mis canciones",
   },
   {
     id: 3,
-    icon: <IoMdList />,
-    text: "Mi lista",
+    icon: <FaHeart size={24}/>,
+    text: "Mis favoritos",
   },
   {
     id: 4,
-    icon: <IoIosAddCircle />,
-    text: "Agregar",
+    icon: <BsMusicNoteBeamed size={24} />,
+    text: "Géneros",
   },
   {
     id: 5,
-    icon: <IoIosSettings />,
-    text: "Ajustes",
+    icon: <IoIosAddCircle size={24}/>,
+    text: "Agregar",
   },
   {
     id: 6,
-    icon: <FiLogOut />,
-    text: "Logout",
+    icon: <IoIosSettings size={24}/>,
+    text: "Configuración",
+  },
+  {
+    id: 7,
+    icon: <FaUser size={24}/>,
+    text: "Perfil",
+  },
+  {
+    id: 8,
+    icon: <FiLogOut size={24}/>,
+    text: "Salir",
   },
 ];
+
+
+
+
+
+
+
