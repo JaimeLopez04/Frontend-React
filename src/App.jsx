@@ -7,15 +7,7 @@ function App() {
 
     return (
         <>
-            {/* <Login/> */}
-            {/* <Registro/> */}
-            <div className="grid-cols-4 grid ">
-                <CardSong/>
-                <CardSong/>
-                <CardSong/>
-                <CardSong/>
-                <CardSong/>
-            </div>
+            <Login/>
         </>
     )
 }
