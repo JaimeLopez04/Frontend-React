@@ -11,6 +11,7 @@ import Login from "./auth/Login"
 import Registro from "./auth/Registro";
 import SettingsCards from "./Components/SettingsCards";
 import GenresCards from "./Components/GenresCards";
+import Settings from "./pages/Settings";
 
 
 function App() {
@@ -23,38 +24,29 @@ function App() {
 
             {/* <Login/> */}
 
+            <Settings/>
+
 
             {/* Barra Lateral */}
-            <div className=" h-screen bg-back object-cover flex items-center">
+            {/* <div className=" h-screen bg-back object-cover flex items-center">
               <Sidebar/>
-            </div>
-
-            
+            </div> */}
 
             {/* <MusicPlayer/> */}
 
             {/* <Player1/> */}
 
-            <div className="w-auto flex flex-row ml-96">
+            {/* <div className="w-auto flex flex-row ml-5">
               <TittleSettings/>
               <SearchBar/>
-            </div>
+            </div> */}
 
-            
 
-           <div className="">
+           {/* <div className="">
               <SettingsCards/>
               <GenresCards/>
-           </div>
-
-
-              
-
-              
-
-           
-
-
+           </div> */}
+  
 
             {/* <Registro/> */}
 

@@ -4,7 +4,7 @@ import SideBarData from "./SideBarData";
 
 const Sidebar = () => {
     return(
-        <div className={` sidebar-container fixed`}>
+        <div className={` sidebar-container`}>
             <UserProfile/>
             <SideBarData/>
         </div>
