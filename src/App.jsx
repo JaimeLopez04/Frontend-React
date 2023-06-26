@@ -1,15 +1,16 @@
 import React from "react"
 import Sidebar from "./Components/side-bar"
-import SearchBar from "./Components/SearchBar"
-import Login from "./auth/Login"
-import Registro from "./auth/Registro";
-
 // import SearchBar from "./Components/SearchBar"
 // import MusicPlayer from "./Components/MusicPlayer" EL FEO ******************
 //************** Estilos del music player *****************
 // import Player1 from "./Components/Player1";
-// import "@madzadev/audio-player/dist/index.css";
+import "@madzadev/audio-player/dist/index.css";
 import TittleSettings from "./Components/TittleSettings"
+import SearchBar from "./Components/SearchBar"
+import Login from "./auth/Login"
+import Registro from "./auth/Registro";
+import SettingsCards from "./Components/SettingsCards";
+import GenresCards from "./Components/GenresCards";
 
 
 function App() {
@@ -18,30 +19,46 @@ function App() {
 
     return (
         <>
+          <div className="bg-black flex flex-wrap" >
+
             {/* <Login/> */}
-            <div className="bg-black flex flex-row" >
+
 
             {/* Barra Lateral */}
-                  <div className="w-full h-screen bg-back object-cover flex items-center">
-                  <Sidebar/>
+            <div className=" h-screen bg-back object-cover flex items-center">
+              <Sidebar/>
             </div>
 
-      {/* Barra de busqueda */}
-      {/* <SearchBar/> */}
+            
+
+            {/* <MusicPlayer/> */}
+
+            {/* <Player1/> */}
+
+            <div className="w-auto flex flex-row ml-96">
+              <TittleSettings/>
+              <SearchBar/>
+            </div>
+
+            
+
+           <div className="">
+              <SettingsCards/>
+              <GenresCards/>
+           </div>
 
 
-      {/* <div>
-        <MusicPlayer/>
-      </div> */}
+              
 
-      {/* <Player1/> */}
+              
 
-      <TittleSettings/>
+           
 
 
 
+            {/* <Registro/> */}
 
-             <Registro/>
+          </div>
         </>
     )
 
@@ -65,7 +82,7 @@ function App() {
   // if(authState === 'login') return <Login setAuthState={setAuthState} setUser={setUser}/>
   // if(authState === 'register') return <Registro setAuthState={setAuthState} setUser={setUser}/> 
   // if(user) return <Home user={user} setAuthState={setAuthState} setUser={setUser}/>
-
+    
 }
 
 export default App
