@@ -2,7 +2,11 @@ import React from 'react'
 import Logo from "../assets/BeatLabLogo.svg"
 
 
-function Form() {
+const Form = () => {
+
+    const manejadorSubmit =e=> {
+        e.preventDefault();
+    }
 
     return (
         <div className='bg-black/20 backdrop-blur-lg px-24 py-8 rounded-2xl'>
@@ -12,27 +16,33 @@ function Form() {
             </div>
             <p className='font-medium text-lg mt-4 text-center'>Inicia Sesión</p>
             <div className='mt-6'>
-                <div className='flex flex-col'>
-                    <label className='text-lg font-medium'>Email</label>
-                    <input 
-                        className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
-                        placeholder="Enter your email"
-                    />
-                </div>
-                <div className='flex flex-col mt-4'>
-                    <label className='text-lg font-medium'>Contraseña</label>
-                    <input 
-                        className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
-                        placeholder='Ingresa tu contraseña'
-                        type='password'
-                    />
-                </div>
+                <form id='form-login' onSubmit={manejadorSubmit}>
+                    <div className='flex flex-col'>
+                        <label className='text-lg font-medium'>Email</label>
+                        <input 
+                            className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
+                            placeholder="Enter your email"
+                            name='username'
+                        />
+                    </div>
+                    <div className='flex flex-col mt-4'>
+                        <label className='text-lg font-medium'>Contraseña</label>
+                        <input 
+                            className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
+                            placeholder='Ingresa tu contraseña'
+                            type='password'
+                            name='password'
+                        />
+                    </div>
+                </form>
                 <div className='text-center'>
                     <button className='font-medium text-base text-violet-500 mt-5'>¿Olvidaste la contraseña?</button>
                 </div>
                 <div className='mt-6 flex flex-col gap-y-4'>
                     <button 
-                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05]  ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'>
+                        className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05]  ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'
+                        type='submit'
+                        form='form-login'>
                             Entrar
                     </button>
                     <button 
