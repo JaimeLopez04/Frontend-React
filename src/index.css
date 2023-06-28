@@ -19,6 +19,7 @@
         @apply flex items-center mt-2 p-4 rounded-lg cursor-pointer hover:bg-purple 
         hover:bg-opacity-20 transition-all duration-300
     }
+    
 
 }
 

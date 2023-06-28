@@ -25,7 +25,7 @@ const Player1 = () => {
         <Player className="text-base"
             trackList={tracks}
             includeTags={false}
-            includeSearch={true}
+            includeSearch={false}
             showPlaylist={true}
             autoPlayNextTrack={true}
         />

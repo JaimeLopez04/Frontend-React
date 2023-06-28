@@ -12,6 +12,10 @@ import Registro from "./auth/Registro";
 import SettingsCards from "./Components/SettingsCards";
 import GenresCards from "./Components/GenresCards";
 import Settings from "./pages/Settings";
+// import Route
+import Player1 from "./Components/Player1";
+import Player2 from "./Components/Player2";
+import Player3 from "./Components/Player3";
 
 
 function App() {
@@ -20,11 +24,13 @@ function App() {
 
     return (
         <>
-          <div className="bg-black flex flex-wrap" >
+          <div className="bg-black flex flex-wrap " >
 
             {/* <Login/> */}
 
-            <Settings/>
+            {/* <Settings/> */}
+
+            <Player3/>
 
 
             {/* Barra Lateral */}
