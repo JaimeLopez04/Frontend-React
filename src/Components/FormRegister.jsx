@@ -36,9 +36,7 @@ const FormRegistro = () => {
         })
         .catch(function (error) {
             console.log(error, 'error');
-            if (error.response.status === 401) {
-                alert("Invalid credentials");
-            }
+            
         });
     };
 
@@ -120,7 +118,7 @@ const FormRegistro = () => {
                 <div className="mt-6 flex flex-col gap-y-4">
                     <button 
                         className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05]  ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg"
-                        onClick={() => registerUser()}
+                        onClick={registerUser}
                         >
                         Registrarse
                     </button>

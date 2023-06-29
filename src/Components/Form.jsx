@@ -29,10 +29,9 @@ const Form = () => {
                 password: password
             })
             .then(function (response) {
-                if (response.data == {"Login": "Login Successfull"}){
+                if (response.data.Login === "Login Successfull"){
                     navigate("/home")
-                }else {
-                    console.log(response.data)            
+                }else {          
                     navigate("/")
                 }
             })
