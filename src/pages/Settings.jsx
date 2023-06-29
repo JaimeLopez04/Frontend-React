@@ -2,7 +2,8 @@ import Sidebar from "../Components/side-bar"
 import TittleSettings from "../Components/TittleSettings"
 import SearchBar from "../Components/SearchBar"
 import SettingsCards from "../Components/SettingsCards"
-import Player2 from "../Components/Player2"
+// import Player2 from "../Components/Player2"
+import Player3 from "../Components/Player3"
 
 const Settings = () => {
   return (
@@ -38,7 +39,7 @@ const Settings = () => {
 
     {/* CARDS AJUSTES */}
     <div className=""> 
-        <div className="grid grid-cols-2 gap-8 ml-10 mt-28">
+        <div className="grid grid-cols-2 gap-5 ml-10 mt-28">
             <div className="col-span-1">
                 <SettingsCards/>
             </div>
@@ -57,14 +58,24 @@ const Settings = () => {
             <div className="col-span-1">
                 <SettingsCards/>
             </div>
+            <div className="col-span-1">
+                <SettingsCards/>
+            </div>
+            
         </div>
+
+        <div className="ml-10 mt-9">
+            <Player3/>
+        </div>
+
+
     </div>
 
 
     {/* MUSIC PLAYER */}
-    <div className="ml-56 mt-28">
-        <Player2/>
-    </div>
+    {/* <div className="ml-56 mt-28">
+        <Player3/>
+    </div> */}
 
 
    

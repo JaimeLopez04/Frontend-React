@@ -16,6 +16,7 @@ import Settings from "./pages/Settings";
 import Player1 from "./Components/Player1";
 import Player2 from "./Components/Player2";
 import Player3 from "./Components/Player3";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -30,8 +31,9 @@ function App() {
 
             {/* <Settings/> */}
 
-            <Player3/>
+            <Profile/>
 
+            {/* <Player3/> */}
 
             {/* Barra Lateral */}
             {/* <div className=" h-screen bg-back object-cover flex items-center">
