@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/BeatLabLogo.svg"
+import Logo from "../assets/BeatLabLogo.webp"
 
 import { apiUrl } from "../api/apiurl";
 import axios from 'axios';

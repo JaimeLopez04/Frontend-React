@@ -1,5 +1,5 @@
 import React from "react";
-import ImgLogin from "../assets/ImgLogin.svg"
+import ImgLogin from "../assets/ImgLogin.webp"
 import Form from '../Components/Form'
 
 function Login() {
