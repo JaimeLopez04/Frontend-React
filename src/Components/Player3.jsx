@@ -96,7 +96,7 @@ const Player3 = () => {
             </button>
 
             <div className="flex flex-col justify-between p-3 leading-normal">
-              <audio className={Player} autoPlay
+              <audio className={Player} 
                   src={songs[currentSongIndex].url} type="audio/mp3" controls ref={audioRef}> 
               </audio>            
             </div>
