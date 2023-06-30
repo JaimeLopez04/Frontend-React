@@ -14,17 +14,9 @@ const FormRegistro = () => {
     const [phone,setPhone] = useState('');
     
     const navigate = useNavigate();
-    
     const registerUser = () => {
         let url = apiUrl + 'register'
         axios.defaults.headers.post['Content-Type'] = 'application/json';
-        // axios.post(url, {
-        //     nameUser: nameUser,
-        //     lastNameUser: lastNameUser,
-        //     email: email,
-        //     password: password,
-        //     phone: phone
-        // })
         axios.post(url, {
             nameUser: nameUser,
             lastNameUser: lastNameUser,
@@ -33,17 +25,14 @@ const FormRegistro = () => {
             phone: phone
         })
         .then(function (response) {
-            if (response.status === 200){
+            if (response.status === "Register Successful"){
                 navigate("/")
-                console.log(response.data)
             }else {
-                console.log(response.data);
                 navigate("/register")
             }
         })
-        .catch(function (response) {
-            console.log(response.data);
-            
+        .catch(function (error) {
+            console.log("Error", error);
         });
     };
 
