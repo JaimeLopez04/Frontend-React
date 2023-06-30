@@ -5,7 +5,10 @@ import backwards3 from "../assets/backwards3.png"
 import forwards3 from "../assets/forwards3.png"
 import emptyHeart from "../assets/emptyHeart.png"
 import fullHeart from "../assets/fullHeart.png" 
-import settingsOption from "../assets/settingsOption.jpg"
+// import settingsOption from "../assets/settingsOption.jpg"
+// import wave from "../assets/wave.gif"
+import wave2 from "../assets/wave2.gif"
+
 import { useState, useRef, useEffect } from 'react';
 
 
@@ -87,7 +90,7 @@ const Player3 = () => {
   return (
     <div>
         <div  className="flex flex-row items-center bg-white border border-gray-200 rounded-lg md:h-24 md:flex-row md:max-w-6xl dark:border-gray-700 dark:bg-transparent shadow-lg shadow-purple2 ">
-            <img className="object-cover w-full rounded-t-lg h-96 md:h-24 md:w-24 md:rounded-none md:rounded-l-lg mr-3" src={settingsOption} alt="" />
+            <img className="object-cover w-full rounded-t-lg h-96 md:h-24 md:w-24 md:rounded-none md:rounded-l-lg mr-3" src={wave2} alt="" />
               <div className="flex flex-col w-60">
                 <h2 className="text-base font-bold text-white">{songs[currentSongIndex].tittle}</h2>
                 <p className="text-xs">{songs[currentSongIndex].artist}</p>

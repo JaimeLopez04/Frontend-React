@@ -29,32 +29,11 @@ function App() {
 
             {/* <Login/> */}
 
-            {/* <Settings/> */}
+            <Settings/>
 
-            <Profile/>
+            {/* <Profile/> */}
 
             {/* <Player3/> */}
-
-            {/* Barra Lateral */}
-            {/* <div className=" h-screen bg-back object-cover flex items-center">
-              <Sidebar/>
-            </div> */}
-
-            {/* <MusicPlayer/> */}
-
-            {/* <Player1/> */}
-
-            {/* <div className="w-auto flex flex-row ml-5">
-              <TittleSettings/>
-              <SearchBar/>
-            </div> */}
-
-
-           {/* <div className="">
-              <SettingsCards/>
-              <GenresCards/>
-           </div> */}
-  
 
             {/* <Registro/> */}
 
