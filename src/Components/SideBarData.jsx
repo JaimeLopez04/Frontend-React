@@ -11,12 +11,12 @@ const SidebarData = () => {
                         key={data.id}>
                             <a href={data.ruta}
                                 className="flex justify-center items-center">
-                                  <div className="mr-8 text-3xl text-white">
-                                      {data.icon}
-                                  </div>
-                                  <div className={`text-base text-white whitespace-pre`}>
-                                      {data.text}
-                                  </div>
+                                <div className="mr-8 text-3xl text-white">
+                                    {data.icon}
+                                </div>
+                                <div className={`text-base text-white whitespace-pre`}>
+                                    {data.text}
+                                </div>
                             </a>
                     </div>
                 );
