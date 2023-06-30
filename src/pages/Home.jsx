@@ -40,8 +40,9 @@ function Home() {
                         <MiLista/>
                     </main>
                     <footer>
-                        <div className="bottom-3 inset-x-0 justify-center z-10 text-xl h-28 flex fixed bg-black/80 items-center ml-[22rem] mr-2">
+                        <div className="bottom-3 inset-x-0 justify-center z-10  h-28 flex fixed  items-center ml-[22rem] mr-2">
                             <Player3/>
+                            {/* hola */}
                         </div>
                     </footer>
                 </div>
