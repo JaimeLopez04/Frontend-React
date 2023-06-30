@@ -25,13 +25,9 @@ const FormRegistro = () => {
             phone: phone
         })
         .then(function (response) {
-            if (response.status === "Register Successful"){
-                console.log("IF");
-                console.log(response.data);
+            if (response.data.Register === "Register Successful"){
                 navigate("/")
             }else {
-                console.log("ELSE");
-                console.log(response.data);
                 navigate("/register")
             }
         })
