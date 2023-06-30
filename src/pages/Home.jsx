@@ -2,7 +2,7 @@ import Sidebar from "../Components/side-bar"
 import SearchBar from "../Components/SearchBar"
 import MiLista from "../Components/mi-lista/MiLista"
 import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
-import Player3 from "../Components/Player3"
+import Player3 from "../Components/player/Player3"
 
 function Home() {
     const fecha = new Date()
@@ -40,7 +40,7 @@ function Home() {
                         <MiLista/>
                     </main>
                     <footer>
-                        <div className="bottom-3 inset-x-0 justify-center z-10 text-xl h-28 flex fixed bg-black/80 items-center ml-[22rem] mr-2">
+                        <div className="bottom-3 inset-x-0 justify-center z-10 text-xl h-28 flex fixed items-center ml-[22rem] mr-2">
                             <Player3/>
                         </div>
                     </footer>
