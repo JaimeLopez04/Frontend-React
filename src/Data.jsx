@@ -1,6 +1,6 @@
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiUser } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"
-import { IoIosAddCircle } from "react-icons/io"
+import { IoIosAddCircle, IoMdList } from "react-icons/io"
 import { IoIosSettings } from 'react-icons/io'
 import { FaHeadphones } from 'react-icons/fa';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
@@ -10,7 +10,7 @@ import { BsHouseFill } from 'react-icons/bs';
 export const datas = [
   {
     id: 1,
-    icon: <FiUser />,
+    icon: <FiUser/>,
     ruta: "",
     text: "Perfil",
   },
@@ -43,18 +43,6 @@ export const datas = [
     icon: <FiLogOut />,
     ruta: "/",
     text: "Logout",
-  },
-  {
-    id: 7,
-    icon: <FaUser size={24}/>,
-    ruta: ""
-    text: "Perfil",
-  },
-  {
-    id: 8,
-    icon: <FiLogOut size={24}/>,
-    ruta: ""
-    text: "Salir",
   },
 ];
 

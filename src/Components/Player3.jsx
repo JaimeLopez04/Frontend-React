@@ -21,13 +21,6 @@ const Player3 = () => {
   //ARREGLO DE CANCIONES
   const songs = [
     {
-      tittle: "Rosa de Guadalupe",
-      artist: "Me chimba conocerte",
-      genre: "Texmex",
-      url: rosa,
-      favorite: false,
-    },
-    {
       tittle: "Chords of life",
       artist: "Madza",
       genre: "idk",
@@ -89,7 +82,7 @@ const Player3 = () => {
 
   return (
     <div>
-        <div  className="flex flex-row items-center bg-white border border-gray-200 rounded-lg md:h-24 md:flex-row md:max-w-6xl dark:border-gray-700 dark:bg-transparent shadow-lg shadow-purple2 ">
+        <div  className="flex flex-row items-center bg-white border border-gray-200 rounded-lg md:flex-row md:max-w-6xl dark:border-gray-700 dark:bg-transparent shadow-lg shadow-purple2 ">
             <img className="object-cover w-full rounded-t-lg h-96 md:h-24 md:w-24 md:rounded-none md:rounded-l-lg mr-3" src={wave2} alt="" />
               <div className="flex flex-col w-60">
                 <h2 className="text-base font-bold text-white">{songs[currentSongIndex].tittle}</h2>
