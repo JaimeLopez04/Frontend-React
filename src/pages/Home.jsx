@@ -35,7 +35,7 @@ function Home() {
                     {/* Si el contenido es demasiado grande, se creará un área desplazable */}
                         <GroupCardsSong/>
                     </div>
-                    <div className="h-24 ml-2">
+                    <div className="h-24">
                         <Player3/>
                     </div>
                 </div>
