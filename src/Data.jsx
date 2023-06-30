@@ -10,42 +10,50 @@ import { BsHouseFill } from 'react-icons/bs';
 export const datas = [
   {
     id: 1,
-    icon: <BsHouseFill size={24}/>,
+    icon: <BsHouseFill/>,
+    ruta: "",
     text: "Inicio",
   },
   {
     id: 2,
-    icon: <FaHeadphones size={24}/>,
+    icon: <FaHeadphones/>,
+    ruta: "",
     text: "Mis canciones",
   },
   {
     id: 3,
-    icon: <FaHeart size={24}/>,
+    icon: <FaHeart/>,
+    ruta: "",
     text: "Mis favoritos",
   },
   {
     id: 4,
-    icon: <BsMusicNoteBeamed size={24} />,
+    icon: <BsMusicNoteBeamed/>,
+    ruta: "",
     text: "Géneros",
   },
   {
     id: 5,
-    icon: <IoIosAddCircle size={24}/>,
+    icon: <IoIosAddCircle/>,
+    ruta: "",
     text: "Agregar",
   },
   {
     id: 6,
-    icon: <IoIosSettings size={24}/>,
+    icon: <IoIosSettings/>,
+    ruta: "",
     text: "Configuración",
   },
   {
     id: 7,
-    icon: <FaUser size={24}/>,
+    icon: <FaUser />,
+    ruta: "",
     text: "Perfil",
   },
   {
     id: 8,
-    icon: <FiLogOut size={24}/>,
+    icon: <FiLogOut />,
+    ruta: "/",
     text: "Salir",
   },
 ];
