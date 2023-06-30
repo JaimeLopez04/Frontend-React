@@ -1,11 +1,47 @@
-import React from 'react'
-import Logo from "../assets/BeatLabLogo.svg"
+import { useState } from "react";
+import Logo from "../assets/BeatLabLogo.webp"
 
+import { apiUrl } from "../api/apiurl";
+import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 const Form = () => {
 
-    const manejadorSubmit =e=> {
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const logInUser = (e) => {
         e.preventDefault();
+
+        if(email.length === 0){
+            alert("Email has left Blank!");
+        }
+        else if(password.length === 0){
+            alert("password has left Blank!");
+        }
+        else{
+            let url = apiUrl + 'login'
+            axios.defaults.headers.post['Content-Type'] = 'application/json';
+            axios.post(url, {
+                email: email,
+                password: password
+            })
+            .then(function (response) {
+                if (response.data.Login === "Login Successfull"){
+                    navigate("/home")
+                }else {          
+                    navigate("/")
+                }
+            })
+            .catch(function (error) {
+                console.log(error, 'error');
+                if (error.response.status === 401) {
+                    alert("Invalid credentials");
+                }
+            });
+        }
     }
 
     return (
@@ -16,13 +52,16 @@ const Form = () => {
             </div>
             <p className='font-medium text-lg mt-4 text-center'>Inicia Sesión</p>
             <div className='mt-6'>
-                <form id='form-login' onSubmit={manejadorSubmit}>
+                <form id='form-login'>
                     <div className='flex flex-col'>
                         <label className='text-lg font-medium'>Email</label>
                         <input 
                             className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
                             placeholder="Enter your email"
-                            name='username'
+                            name='email'
+                            value={email} 
+                            type="email"
+                            onChange={(e) => setEmail(e.target.value)} 
                         />
                     </div>
                     <div className='flex flex-col mt-4'>
@@ -32,6 +71,8 @@ const Form = () => {
                             placeholder='Ingresa tu contraseña'
                             type='password'
                             name='password'
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                 </form>
@@ -42,7 +83,8 @@ const Form = () => {
                     <button 
                         className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05]  ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'
                         type='submit'
-                        form='form-login'>
+                        form='form-login'
+                        onClick={logInUser}>
                             Entrar
                     </button>
                     <button 
@@ -59,7 +101,9 @@ const Form = () => {
                 <div className='mt-4 flex justify-center items-center'>
                     <p className='font-medium text-base'>¿No tienes una cuenta aún?</p>
                     <button 
-                        className='ml-2 font-medium text-base text-violet-500'>Registrate aquí!</button>
+                        className='ml-2 font-medium text-base text-violet-500' >
+                        <a href="/register">Registrate aquí!</a>  
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,11 +1,10 @@
 import React from 'react'
-import Logo from "../assets/BeatLabLogo.svg"
-import ImgRegister from "../assets/ImgRegister.svg"
+import ImgRegister from "../assets/ImgRegister.webp"
 import FormRegistro from '../Components/FormRegister'
 
 function Registro() {
     return (
-        <div className='flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-900 via-purple-900 to-black'>
+        <div className='flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple via-purple-900 to-black'>
             <div className='w-full flex items-center justify-center lg:w-1/2' >            
                 <FormRegistro/>
             </div>
