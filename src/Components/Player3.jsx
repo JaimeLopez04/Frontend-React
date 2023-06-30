@@ -92,7 +92,6 @@ const Player3 = () => {
               <audio 
               // className={Player} 
                   className={Player}
-                  autoPlay
                   src={songs[currentSongIndex].url} type="audio/mp3" 
                   controls ref={audioRef}> 
               </audio>            
