@@ -3,7 +3,7 @@ import TittleSettings from "../Components/TittleSettings"
 import SearchBar from "../Components/SearchBar"
 import SettingsCards from "../Components/SettingsCards"
 // import Player2 from "../Components/Player2"
-import Player3 from "../Components/Player3"
+import Player3 from "../Components/player/Player3"
 
 const Settings = () => {
   return (
@@ -77,22 +77,7 @@ const Settings = () => {
         <Player3/>
     </div> */}
 
-
-   
-    
-   
-
-    
-
-
-    
-
-    </div>
-    
-
-    
-
-            
+    </div>       
   )
 }
 

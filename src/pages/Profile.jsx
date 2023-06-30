@@ -1,7 +1,7 @@
 import Sidebar from "../Components/side-bar"
 import SearchBar from "../Components/SearchBar"
 // import SettingsCards from "../Components/SettingsCards"
-import Player3 from "../Components/Player3"
+import Player3 from "../Components/player/Player3"
 import TittleProfile from "../Components/tittleProfile"
 import ChangeName from "../Components/ChangeName"
 import ChangePhoto from "../Components/ChangePhoto"
