@@ -1,7 +1,7 @@
 import Sidebar from "../Components/side-bar"
 import SearchBar from "../Components/SearchBar"
 import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
-import Player3 from "../Components/Player3"
+import Player3 from "../Components/player/Player3"
 
 function Home() {
     const fecha = new Date()
@@ -24,26 +24,20 @@ function Home() {
                 <div className="w-1/4 mt-4 mr-4"> {/* Agregamos el margen de 6 al contenedor de navegación */}
                     {/* Aquí puedes poner tu contenido de navegación */}
                     <Sidebar/>
-                </aside>
-            </div>
-            <div className="flex flex-col w-full overflow-hidden relative">
-                <nav className="h-[4.5rem] flex justify-between fixed top-3 ml-[22rem] mr-2 inset-x-0 z-10 bg-white/10 items-center rounded-xl border border-solid border-white border-opacity-10 ">
-                    <h1 className="p-2 pl-6 pt-1 font-bold text-4xl text-white whitespace-pre opacity-100">
-                        {titulo()}
-                    </h1>
-                    <SearchBar/>
-                </nav>
-                <div className="flex">
-                    <main className="flex-auto min-h-screen p-4 overflow-hidden pt-24 pl-96  mb-20">
-                        {/* <GroupCardsSong/> */}
-
-                        <MiLista/>
-                    </main>
-                    <footer>
-                        <div className="bottom-3 inset-x-0 justify-center z-10 text-xl h-28 flex fixed bg-black/80 items-center ml-[22rem] mr-2">
-                            <Player3/>
-                        </div>
-                    </footer>
+                </div>
+                
+                <div className="flex-1 flex flex-col m-3"> {/* Agregamos el margen de 6 al contenedor de la columna de tres filas */}
+                    <div className="h-16">
+                        <SearchBar/>
+                    </div>
+                    <div className="flex-1 overflow-x-hidden overflow-y-scroll"> {/* Eliminamos la clase overflow-y-auto para evitar el desplazamiento */}
+                    {/* Aquí puedes poner el contenido que deseas hacer desplazable */}
+                    {/* Si el contenido es demasiado grande, se creará un área desplazable */}
+                        <GroupCardsSong/>
+                    </div>
+                    <div className="h-24 ml-2">
+                        <Player3/>
+                    </div>
                 </div>
             </div>
 
