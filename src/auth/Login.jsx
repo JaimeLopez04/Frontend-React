@@ -1,10 +1,11 @@
-import React from 'react'
-import ImgLogin from "../assets/ImgLogin.svg"
+import React from "react";
+import ImgLogin from "../assets/ImgLogin.webp"
 import Form from '../Components/Form'
 
 function Login() {
+
     return (
-        <div className='flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-900 via-purple-900 to-black'>
+        <div className='flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple via-purple-900 to-black'>
             <div className='w-full flex items-center justify-center lg:w-1/2' >
                 <Form/>
             </div>
@@ -14,6 +15,5 @@ function Login() {
         </div>
     )
 }
-
 
 export default Login

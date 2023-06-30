@@ -13,9 +13,11 @@
     "@madzadev/audio-player": "^1.1.11",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.6",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-router-dom": "^6.14.0",
     "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
