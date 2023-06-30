@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Logo from "../assets/BeatLabLogo.svg";
+import Logo from "../assets/BeatLabLogo.webp";
 
 import { apiUrl } from "../api/apiurl";
 import axios from 'axios';
@@ -18,6 +18,13 @@ const FormRegistro = () => {
     const registerUser = () => {
         let url = apiUrl + 'register'
         axios.defaults.headers.post['Content-Type'] = 'application/json';
+        // axios.post(url, {
+        //     nameUser: nameUser,
+        //     lastNameUser: lastNameUser,
+        //     email: email,
+        //     password: password,
+        //     phone: phone
+        // })
         axios.post(url, {
             nameUser: nameUser,
             lastNameUser: lastNameUser,
@@ -26,16 +33,16 @@ const FormRegistro = () => {
             phone: phone
         })
         .then(function (response) {
-            if (response.data == {"Register" : "Register Successful"}){
+            if (response.status === 200){
                 navigate("/")
                 console.log(response.data)
             }else {
-                console.log(response.data)            
+                console.log(response.data);
                 navigate("/register")
             }
         })
-        .catch(function (error) {
-            console.log(error, 'error');
+        .catch(function (response) {
+            console.log(response.data);
             
         });
     };

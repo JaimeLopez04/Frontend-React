@@ -1,6 +1,5 @@
 import React from 'react'
-import Logo from "../assets/BeatLabLogo.svg"
-import ImgRegister from "../assets/ImgRegister.svg"
+import ImgRegister from "../assets/ImgRegister.webp"
 import FormRegistro from '../Components/FormRegister'
 
 function Registro() {
