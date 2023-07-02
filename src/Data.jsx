@@ -1,6 +1,5 @@
-import { FiLogOut, FiUser } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"
-import { IoIosAddCircle, IoMdList } from "react-icons/io"
 import { IoIosSettings } from 'react-icons/io'
 import { FaHeadphones } from 'react-icons/fa';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
@@ -34,24 +33,18 @@ export const datas = [
   },
   {
     id: 5,
-    icon: <IoIosAddCircle/>,
-    ruta: "",
-    text: "Agregar",
-  },
-  {
-    id: 6,
     icon: <IoIosSettings/>,
     ruta: "",
     text: "Configuración",
   },
   {
-    id: 7,
+    id: 6,
     icon: <FaUser />,
     ruta: "",
     text: "Perfil",
   },
   {
-    id: 8,
+    id: 7,
     icon: <FiLogOut />,
     ruta: "/",
     text: "Salir",
