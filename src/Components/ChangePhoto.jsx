@@ -1,7 +1,13 @@
 import photo from "../assets/photo.jpg"
 import user from "../assets/user.jpg"
+import ChangePhotoModal from "./modalWindow/ChangePhotoModal"
+import { useState } from 'react'
+
 
 const ChangePhoto = () => {
+  const [showMyModal, setShowMyModal] = useState(false);
+  const handleOnClose = () => setShowMyModal(false);
+
   return (
     <div>
               <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:h-24 md:flex-row md:max-w-3xl  dark:border-gray-700 dark:bg-transparent  ">
@@ -15,11 +21,13 @@ const ChangePhoto = () => {
                 </p>
             </div>
             <div className="flex flex-row">
-            <button>
+            <button className="w-11" onClick={() => setShowMyModal(true)}>
                 <img src={photo} className="mr-3 top-0 left-8 w-11 h-11 object-cover ml-48 rounded-md"/>
             </button>
             </div>
         </div>
+
+        <ChangePhotoModal onClose={handleOnClose} visible={showMyModal}/>
       
     </div>
   )
