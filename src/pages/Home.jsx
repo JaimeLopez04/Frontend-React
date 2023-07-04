@@ -1,8 +1,8 @@
 import Sidebar from "../Components/side-bar"
+import SearchBar from "../Components/SearchBar"
 import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
-import MyList from "../Components/mi-lista/MyList"
 
 function Home() {
     
@@ -21,18 +21,20 @@ function Home() {
 
     return (
         <>
-            <div className="flex h-screen"> 
-                <div className="w-1/4 mt-3 mr-4"> 
+            <div className="flex h-screen"> {/* Agregamos un fondo gris claro al cuerpo del documento */}
+                <div className="w-1/4 mt-3 mr-4"> {/* Agregamos el margen de 6 al contenedor de navegación */}
+                    {/* Aquí puedes poner tu contenido de navegación */}
                     <Sidebar/>
                 </div>
                 
-                <div className="flex-1 flex flex-col m-3"> 
+                <div className="flex-1 flex flex-col m-3"> {/* Agregamos el margen de 6 al contenedor de la columna de tres filas */}
                     <div className="h-16">
                         <TopBar titulo={titulo()}/>
                     </div>
-                    <div className="flex-1 overflow-x-hidden overflow-y-scroll">
-                        {/* <GroupCardsSong/> */}
-                        <MyList title="Mi lista"/>
+                    <div className="flex-1 overflow-x-hidden overflow-y-scroll"> {/* Eliminamos la clase overflow-y-auto para evitar el desplazamiento */}
+                    {/* Aquí puedes poner el contenido que deseas hacer desplazable */}
+                    {/* Si el contenido es demasiado grande, se creará un área desplazable */}
+                        <GroupCardsSong/>
                     </div>
                     <div className="h-[86px]">
                         <Player3/>
