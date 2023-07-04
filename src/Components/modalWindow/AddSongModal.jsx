@@ -1,4 +1,5 @@
 import close from "../../assets/close.png"
+import DropdownGenres from "../DropdownGenres";
 
 const AddSongModal = ({visible, onClose}) => {
     const handleOnClose = (e) => {
@@ -28,10 +29,11 @@ const AddSongModal = ({visible, onClose}) => {
                     className=" m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="Artista">
                     </input>
-                    <input
+                    {/* <input
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="Género">
-                    </input>
+                    </input> */}
+                    <DropdownGenres/>
                     <input type="file" id="archivo" accept="audio/*"
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="">                        
