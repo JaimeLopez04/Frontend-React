@@ -24,4 +24,18 @@
 
 ::-webkit-scrollbar-thumb:hover{
     background: #403f3f;
+    /* background-color: #0f051d; */
+    /* background-color: black; */
+    background-color: #07020e;
+    color: #f1f1f1;
+}
+
+/* Para estilizar el botón de subiir archivo - ventana modal subir canción */
+#archivo::-webkit-file-upload-button {
+    background-color: rgb(99, 1, 99, 0.5);
+    border: none;
+    margin-right: 4px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
 }

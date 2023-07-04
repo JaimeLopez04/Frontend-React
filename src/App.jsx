@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 // import Route
 import Registro from "./auth/Registro";
 import Login from "./auth/Login";
@@ -22,6 +23,7 @@ function App() {
                 </Route>
             </BrowserRouter>
         </>
+        
     )
 }
 
