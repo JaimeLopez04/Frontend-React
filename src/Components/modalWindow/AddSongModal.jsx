@@ -1,4 +1,5 @@
 import close from "../../assets/close.png"
+import DropdownGenres from "../DropdownGenres";
 
 const AddSongModal = ({visible, onClose}) => {
     const handleOnClose = (e) => {
@@ -21,21 +22,37 @@ const AddSongModal = ({visible, onClose}) => {
                 </div>
                 <div className="flex flex-col">
                     <input
-                    className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
+                    className="pl-3 m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="Título de la canción">
                     </input>
                     <input
-                    className=" m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
+                    className="pl-3 m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="Artista">
                     </input>
-                    <input
+                    {/* <input
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent text-white focus:outline-none focus:outline-purple2 focus:outline-1"
                     placeholder="Género">
-                    </input>
-                    <input type="file" id="archivo" accept="audio/*"
-                    className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
-                    placeholder="">                        
-                    </input>
+                    </input> */}
+                    <DropdownGenres/>
+                    {/* SUBIR AUDIO */}
+                    <div className="flex flex-col rounded-md bg-purple2 bg-opacity-10 mt-3">
+                        <h2 className="px-3 py-2 font-bold text-base">Subir Audio</h2>
+                        <input type="file" id="archivo" accept="audio/*"
+                        className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
+                        placeholder="">                        
+                        </input>
+                    </div>
+                    {/* SUBIR IMAGÉN CANCIÓN */}
+                    <div className="flex flex-col rounded-md bg-purple2 bg-opacity-10 mt-3">
+                        <h2 className="px-3 py-2 font-bold text-base">Subir Imagén</h2>
+                        <input type="file" id="archivo" accept="image/*"
+                        className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
+                        placeholder="">                        
+                        </input>
+                    </div>
+
+
+
                 </div>
             </div>
             <div className="">

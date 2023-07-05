@@ -9,6 +9,7 @@ export default {
       colors: {
         purple: '#6E06B3',
         purple2: '#6A287E',
+        purple3: 'rgb(99, 1, 99, 0.95)',
       },
     },
   },
