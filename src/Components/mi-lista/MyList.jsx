@@ -1,17 +1,22 @@
 import { FaPlus } from 'react-icons/fa'
 import { BsMusicNoteList, BsTrash } from 'react-icons/bs'
 import {ListSong} from './ListSong'
+import { useState } from 'react';
+import AddSongModal from '../modalWindow/AddSongModal';
 
 function MyList(props){
+
+    const [showMyModal, setShowMyModal] = useState(false);
+    const handleOnClose = () => setShowMyModal(false);
     return (
         <div className='p-3'>
             <div className="flex justify-between items-center">
                 <p className='text-lg'>
                     {props.title}
                 </p>
-                <i>
+                <button onClick={() => setShowMyModal(true)}>
                     <FaPlus />
-                </i>
+                </button>
             </div>
             <div className='cursor-pointer mt-4 w-full '>
                 {ListSong.map((list) => {
@@ -30,6 +35,7 @@ function MyList(props){
                     )
                 })}
             </div>
+            <AddSongModal onClose={handleOnClose} visible={showMyModal}/>
         </div>
     )
 }
