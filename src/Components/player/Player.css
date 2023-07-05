@@ -6,7 +6,8 @@ audio {
 audio::-webkit-media-controls-panel {
     background-color: rgb(110, 10, 110);
     opacity: 40;
-  }
+    border: none;
+}
 
   audio::-webkit-media-controls-mute-button {
     background-color: rgb(148, 51, 148);
