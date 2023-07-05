@@ -34,7 +34,7 @@ const DropdownGenres = () => {
         //   onClick={toggling}
           className="w-[100%] rounded-l-md px-4 py-2"
         >
-          {selectedOption || "Selecciona El Género"}
+          {selectedOption || "Selecciona el género"}
         </div>
         {/* <div className="w-[100%] rounded-l-md px-4 py-2">
           Selecciona El Género
