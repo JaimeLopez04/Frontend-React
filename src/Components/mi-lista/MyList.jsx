@@ -1,6 +1,6 @@
 import { FaPlus } from 'react-icons/fa'
 import { BsMusicNoteList, BsTrash } from 'react-icons/bs'
-// import {ListSong} from './ListSong'
+import {ListSong} from './ListSong'
 
 function MyList(props){
     return (

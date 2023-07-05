@@ -10,44 +10,45 @@ export const datas = [
   {
     id: 1,
     icon: <BsHouseFill/>,
-    ruta: "/home",
     text: "Inicio",
+    navItem: "inicio",
   },
   {
     id: 2,
     icon: <FaHeadphones/>,
-    ruta: "/my-list",
     text: "Mis canciones",
+    navItem: "miLista",
   },
   {
     id: 3,
     icon: <FaHeart/>,
-    ruta: "",
     text: "Mis favoritos",
+    navItem: "mis-favoritos",
   },
   {
     id: 4,
     icon: <BsMusicNoteBeamed/>,
-    ruta: "",
     text: "Géneros",
+    navItem: "generos",
   },
   {
     id: 5,
     icon: <IoIosSettings/>,
-    ruta: "",
     text: "Configuración",
+    navItem: "configuracion",
   },
   {
     id: 6,
     icon: <FaUser />,
-    ruta: "",
     text: "Perfil",
+    navItem: "perfil",
   },
   {
     id: 7,
     icon: <FiLogOut />,
     ruta: "/",
     text: "Salir",
+    navItem: "salir",
   },
 ];
 

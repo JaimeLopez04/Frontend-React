@@ -1,8 +1,12 @@
+import React, { useState } from "react"
 import Sidebar from "../Components/side-bar"
-import SearchBar from "../Components/SearchBar"
 import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
+import MyList from "../Components/mi-lista/MyList"
+import SettingsCards from "../Components/SettingsCards"
+import SidebarData from "../Components/SideBarData"
+import userProfile from "../Components/userProfile"
 
 function Home() {
     
@@ -19,22 +23,34 @@ function Home() {
         }
     }
 
+    const pageComponents = {
+        inicio: GroupCardsSong,
+        miLista: MyList,
+        configuracion: SettingsCards
+        // Agrega más páginas según tus necesidades
+    };
+    const [currentPage, setCurrentPage] = useState(null);
+
+    const PageComponent = pageComponents[currentPage];
+
     return (
         <>
-            <div className="flex h-screen"> {/* Agregamos un fondo gris claro al cuerpo del documento */}
-                <div className="w-1/4 mt-3 mr-4"> {/* Agregamos el margen de 6 al contenedor de navegación */}
-                    {/* Aquí puedes poner tu contenido de navegación */}
-                    <Sidebar/>
+            <div className="flex h-screen"> 
+                <div className="w-1/4 mt-3 mr-4">
+                    <Sidebar setCurrentPage={setCurrentPage}/>
+                        {/* <div id="navegacion" className="bg-white bg-opacity-10 h-[98%] w-[20rem] max-md:w-[6.5rem] rounded-2xl ml-6 p-4 border transition-all duration-500 border-solid border-white border-opacity-10 relative">
+                            <SidebarData setCurrentPage={setCurrentPage}/>
+                        </div> */}
                 </div>
                 
-                <div className="flex-1 flex flex-col m-3"> {/* Agregamos el margen de 6 al contenedor de la columna de tres filas */}
+                <div className="flex-1 flex flex-col m-3"> 
                     <div className="h-16">
                         <TopBar titulo={titulo()}/>
                     </div>
-                    <div className="flex-1 overflow-x-hidden overflow-y-scroll"> {/* Eliminamos la clase overflow-y-auto para evitar el desplazamiento */}
-                    {/* Aquí puedes poner el contenido que deseas hacer desplazable */}
-                    {/* Si el contenido es demasiado grande, se creará un área desplazable */}
-                        <GroupCardsSong/>
+                    <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
+                        {/* <GroupCardsSong/> */}
+                            {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                        
                     </div>
                     <div className="h-[86px]">
                         <Player3/>
