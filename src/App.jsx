@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import Home from "./pages/Home";
+import Profile from "./pages/Profile"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/" element={<Login/>} />
                     <Route path="/register" element={<Registro/>} />
                     <Route path="/home" element={<Home/>} />
+                    <Route path="/profile" element={<Profile/>} />
                 </Routes>
             </BrowserRouter>
         </>
