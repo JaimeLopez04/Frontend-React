@@ -1,5 +1,3 @@
-import React from 'react'
-
 const urlImage = "https://i.pinimg.com/564x/30/3d/83/303d83cb35d5e0ab0d8d6ac28c1890fa.jpg"
 
 const CardSong = () => {

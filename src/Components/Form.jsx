@@ -1,5 +1,9 @@
 import { useState } from "react";
 import Logo from "../assets/BeatLabLogo.webp"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
 
 import { apiUrl } from "../api/apiurl";
 import axios from 'axios';
@@ -12,14 +16,26 @@ const Form = () => {
 
     const navigate = useNavigate();
 
+    const MySwal = withReactContent(Swal)
+
     const logInUser = (e) => {
         e.preventDefault();
 
         if(email.length === 0){
-            alert("Email has left Blank!");
+            MySwal.fire({
+                icon: 'error',
+                title: 'El campo de correo no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
         }
         else if(password.length === 0){
-            alert("password has left Blank!");
+            MySwal.fire({
+                icon: 'error',
+                title: 'El campo de contraseña no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
         }
         else{
             let url = apiUrl + 'login'
@@ -29,16 +45,27 @@ const Form = () => {
                 password: password
             })
             .then(function (response) {
-                if (response.data.Login === "Login Successfull"){
+                if (response.data.LoginSuccessfull){
                     navigate("/home")
                 }else {          
                     navigate("/")
+                    MySwal.fire({
+                        icon: 'error',
+                        title: response.data.LoginFailed,
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
                 }
             })
             .catch(function (error) {
                 console.log(error, 'error');
                 if (error.response.status === 401) {
-                    alert("Invalid credentials");
+                    MySwal.fire({
+                        icon:'error',
+                        title: 'Credenciales no validas',
+                        background: '#E8E5F1',
+                        color: '#000'
+                    })
                 }
             });
         }
@@ -50,7 +77,7 @@ const Form = () => {
                 <img className='w-16' src={Logo} alt='Logo' />
                 <h1 className='text-5xl font-semibold text-center'>Bienvenido</h1>
             </div>
-            <p className='font-medium text-lg mt-4 text-center'>Inicia Sesión</p>
+            <p className='font-medium text-lg mt-4 text-center'>Inicio de Sesión</p>
             <div className='mt-6'>
                 <form id='form-login'>
                     <div className='flex flex-col'>

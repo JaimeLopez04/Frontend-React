@@ -1,4 +1,3 @@
-import React from 'react'
 import CardSong from './CardSong'
 
 const GroupCardsSong = () => {

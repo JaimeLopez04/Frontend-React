@@ -1,4 +1,3 @@
-// import settingsOption from "../assets/settingsOption.jpg"
 import setti from "../assets/setti.jpg"
 
 const SettingsCards = () => {
