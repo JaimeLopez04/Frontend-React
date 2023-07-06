@@ -27,6 +27,6 @@ function SidebarData({ setCurrentPage }){
             })}
         </div>
     );
-};
+}
 
 export default SidebarData

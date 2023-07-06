@@ -5,7 +5,6 @@ import { apiUrl } from "../api/apiurl";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
-
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -55,11 +54,9 @@ const FormRegistro = () => {
                     MySwal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        width: 200,
-                        heightAuto: true,
                         title: 'Usuario registrado con exito',
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 1500
                     })
                 }else {
                     navigate("/register")

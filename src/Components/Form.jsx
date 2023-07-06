@@ -46,9 +46,14 @@ const Form = () => {
             })
             .then(function (response) {
                 if (response.data.LoginSuccessfull){
-                    navigate("/home")
+                    console.log(response.data.LoginSuccessfull);
+                    const { email, lastNameUser, nameUser
+                     } = response.data.LoginSuccessfull
+                     console.log( email, lastNameUser, nameUser)
+                    navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser }})
                 }else {          
                     navigate("/")
+                    console.log(response);
                     MySwal.fire({
                         icon: 'error',
                         title: response.data.LoginFailed,
@@ -59,14 +64,6 @@ const Form = () => {
             })
             .catch(function (error) {
                 console.log(error, 'error');
-                if (error.response.status === 401) {
-                    MySwal.fire({
-                        icon:'error',
-                        title: 'Credenciales no validas',
-                        background: '#E8E5F1',
-                        color: '#000'
-                    })
-                }
             });
         }
     }
