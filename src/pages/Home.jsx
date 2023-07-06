@@ -4,6 +4,7 @@ import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
 import MyList from "../Components/mi-lista/MyList"
+import GenresCards from "../Components/GenresCards"
 import Profile from "./Profile"
 import Settings from "./Settings"
 
@@ -26,6 +27,7 @@ function Home() {
         inicio: GroupCardsSong,
         miLista: MyList,
         configuracion: Settings,
+        generos: GenresCards,
         perfil: Profile
         // Agrega más páginas según tus necesidades
     };
@@ -43,6 +45,7 @@ function Home() {
 
     const nTitulo = nombres[currentPage];
     const hTitulo = titulo()
+
     return (
         <>
             <div className="flex h-screen"> 
