@@ -1,12 +1,9 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Sidebar from "../Components/side-bar"
 import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
 import MyList from "../Components/mi-lista/MyList"
-import SettingsCards from "../Components/SettingsCards"
-import SidebarData from "../Components/SideBarData"
-import userProfile from "../Components/userProfile"
 import Profile from "./Profile"
 import Settings from "./Settings"
 
@@ -35,8 +32,8 @@ function Home() {
 
     const nombres = {
         miLista: "Mis canciones",
-        misFavoritos: "Mis faviritos",
-        generos:"Generos",
+        misFavoritos: "Mis favaritos",
+        generos:"Géneros",
         configuracion: "Configuración",
         perfil: "Perfil"
     }
