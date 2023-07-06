@@ -1,4 +1,5 @@
 import close from "../../assets/close.png"
+import DropdownGenres from "../DropdownGenres";
 
 const EditSongModal = ({visible, onClose}) => {
     const handleOnClose = (e) => {
@@ -20,10 +21,15 @@ const EditSongModal = ({visible, onClose}) => {
                     </button>
                 </div>
                 <div className="flex flex-col">
-                    <input id="archivo"
+                    <input 
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
-                    placeholder="Nuevo nombre de la canción">                        
+                    placeholder="Editar título de la canción">                        
                     </input>
+                    <input 
+                    className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
+                    placeholder="Editar artista de la canción">                        
+                    </input>
+                    <DropdownGenres/>
                 </div>
             </div>
             <div className="">
