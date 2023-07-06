@@ -13,7 +13,6 @@ const GroupCardsSong = () => {
         .then(function (response) {
           const arraySongs = response.data.SongsAll;
           setArraySongs(arraySongs);
-          console.log(response.data.SongsAll);
         })
         .catch(function (error) {
           console.log(error, 'error');

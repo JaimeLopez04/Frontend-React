@@ -1,7 +1,5 @@
 import UserProfile from "./userProfile";
 import SideBarData from "./SideBarData";
-import AppName from "./AppName";
-
 
 const Sidebar = ({setCurrentPage, email, lastNameUser, nameUser}) => {
     return(
