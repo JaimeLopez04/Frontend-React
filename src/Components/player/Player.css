@@ -1,6 +1,6 @@
 audio {
     box-sizing: border-box;
-    width: 36rem;
+    width: 32rem;
 }
 
 audio::-webkit-media-controls-panel {

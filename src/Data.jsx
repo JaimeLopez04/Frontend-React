@@ -23,7 +23,7 @@ export const datas = [
     id: 3,
     icon: <FaHeart/>,
     text: "Mis favoritos",
-    navItem: "mis-favoritos",
+    navItem: "misFavoritos",
   },
   {
     id: 4,
