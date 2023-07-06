@@ -7,11 +7,16 @@ import MyList from "../Components/mi-lista/MyList"
 import GenresCards from "../Components/GenresCards"
 import Profile from "./Profile"
 import Settings from "./Settings"
+import { useLocation } from "react-router-dom"
+// import { useLocation } from "react-router-dom"
 
 function Home() {
     
     const fecha = new Date()
     const hora = fecha.toLocaleTimeString('es-CO')
+
+    const { state } = useLocation();
+    const { email, lastNameUser, nameUser } = state;
 
     let titulo = () =>{
         if (hora >=  '00:00:00 AM' && hora <= '12:00:00 PM'){
@@ -50,7 +55,7 @@ function Home() {
         <>
             <div className="flex h-screen"> 
                 <div className="w-1/4 mt-3 mr-4">
-                    <Sidebar setCurrentPage={setCurrentPage}/>
+                    <Sidebar setCurrentPage={setCurrentPage} email={email} lastNameUser={lastNameUser} nameUser={nameUser}/>
                 </div>
                 
                 <div className="flex-1 flex flex-col m-3"> 
