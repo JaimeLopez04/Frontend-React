@@ -1,10 +1,11 @@
-import React from "react"
-// import Route
+import React from "react";
 import Registro from "./auth/Registro";
 import Login from "./auth/Login";
 
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from "./pages/Home";
+import Profile from "./pages/Profile"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </>
+        
     )
 }
 

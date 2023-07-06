@@ -10,8 +10,8 @@ const userProfile = ({ toggle }) => {
             <img src={user} alt="" className="w-full h-full rounded-full object-cover"/>
         </div>
         <div className={toggle ? "opacity-0 delay-200" : ""}>
-            <h3 className="text-base text-white">Edward Correa</h3>
-            <span className="text-xs text-white opacity-50">jhon16edwardcorrea@gmail.com</span>
+            <h3 className="text-base text-white max-md:hidden">Edward Correa</h3>
+            <span className="text-xs text-white opacity-50 max-md:hidden">jhon16edwardcorrea@gmail.com</span>
         </div>
     </div>
   )

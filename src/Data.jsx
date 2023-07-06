@@ -1,6 +1,5 @@
-import { FiLogOut, FiUser } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"
-import { IoIosAddCircle, IoMdList } from "react-icons/io"
 import { IoIosSettings } from 'react-icons/io'
 import { FaHeadphones } from 'react-icons/fa';
 import { BsMusicNoteBeamed } from 'react-icons/bs';
@@ -11,50 +10,45 @@ export const datas = [
   {
     id: 1,
     icon: <BsHouseFill/>,
-    ruta: "",
     text: "Inicio",
+    navItem: "inicio",
   },
   {
     id: 2,
     icon: <FaHeadphones/>,
-    ruta: "",
     text: "Mis canciones",
+    navItem: "miLista",
   },
   {
     id: 3,
     icon: <FaHeart/>,
-    ruta: "",
     text: "Mis favoritos",
+    navItem: "misFavoritos",
   },
   {
     id: 4,
     icon: <BsMusicNoteBeamed/>,
-    ruta: "",
     text: "Géneros",
+    navItem: "generos",
   },
   {
     id: 5,
-    icon: <IoIosAddCircle/>,
-    ruta: "",
-    text: "Agregar",
+    icon: <IoIosSettings/>,
+    text: "Configuración",
+    navItem: "configuracion",
   },
   {
     id: 6,
-    icon: <IoIosSettings/>,
-    ruta: "",
-    text: "Configuración",
+    icon: <FaUser />,
+    text: "Perfil",
+    navItem: "perfil",
   },
   {
     id: 7,
-    icon: <FaUser />,
-    ruta: "",
-    text: "Perfil",
-  },
-  {
-    id: 8,
     icon: <FiLogOut />,
     ruta: "/",
     text: "Salir",
+    navItem: "salir",
   },
 ];
 

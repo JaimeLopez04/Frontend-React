@@ -1,36 +1,65 @@
+import { useState } from "react"
 import Sidebar from "../Components/side-bar"
-import SearchBar from "../Components/SearchBar"
-import CardSong from "../Components/CardSong"
+import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
+import Player3 from "../Components/player/Player3"
+import TopBar from "../Components/TopBar"
+import MyList from "../Components/mi-lista/MyList"
+import Profile from "./Profile"
+import Settings from "./Settings"
 
 function Home() {
+    
+    const fecha = new Date()
+    const hora = fecha.toLocaleTimeString('es-CO')
 
+    let titulo = () =>{
+        if (hora >=  '00:00:00 AM' && hora <= '12:00:00 PM'){
+            return 'Buenos días'
+        } else if (hora <= '6:30:00 PM'){
+            return 'Buenas tardes'
+        }else{
+            return "Buenas noches"
+        }
+    }
+
+    const pageComponents = {
+        inicio: GroupCardsSong,
+        miLista: MyList,
+        configuracion: Settings,
+        perfil: Profile
+        // Agrega más páginas según tus necesidades
+    };
+
+    const nombres = {
+        miLista: "Mis canciones",
+        misFavoritos: "Mis favaritos",
+        generos:"Géneros",
+        configuracion: "Configuración",
+        perfil: "Perfil"
+    }
+    const [currentPage, setCurrentPage] = useState(null);
+
+    const PageComponent = pageComponents[currentPage];
+
+    const nTitulo = nombres[currentPage];
+    const hTitulo = titulo()
     return (
         <>
-            <div className="flex overflow-hidden">
-                <aside className="h-screen flex items-center justify-center fixed top-0 left-0 z-10">
-                    <Sidebar/>
-                </aside>
-            </div>
-            <div className="flex flex-col w-full overflow-hidden relative">
-                <nav className="h-[4.5rem] flex justify-between fixed top-3 ml-[22rem] mr-2 inset-x-0 z-10 bg-white/10 items-center rounded-xl border border-solid border-white border-opacity-10 ">
-                    <h1 className="p-2 pl-6 pt-1 font-bold text-4xl text-white whitespace-pre opacity-100">Inicio</h1>
-                    <SearchBar/>
-                </nav>
-                <div className="flex">
-                    <main className="flex-auto min-h-screen p-4 overflow-hidden pt-24 pl-96 pr-60 mb-20">
-                        <div className=" grid grid-cols-2 gap-y-2 gap-x-56 lg:grid-cols-4 ">
-                            <CardSong/>
-                            <CardSong/>
-                            <CardSong/>
-                            <CardSong/>
-                            
-                        </div>
-                    </main>
-                    <footer>
-                        <div className="bottom-3 inset-x-0 justify-center z-10 text-xl h-20 flex fixed bg-black/80 items-center ml-[22rem] mr-2">
-                            reproductor
-                        </div>
-                    </footer>
+            <div className="flex h-screen"> 
+                <div className="w-1/4 mt-3 mr-4">
+                    <Sidebar setCurrentPage={setCurrentPage}/>
+                </div>
+                
+                <div className="flex-1 flex flex-col m-3"> 
+                    <div className="h-16">
+                        <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
+                    </div>
+                    <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
+                            {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                    </div>
+                    <div className="h-[86px]">
+                        <Player3/>
+                    </div>
                 </div>
             </div>
         </>
