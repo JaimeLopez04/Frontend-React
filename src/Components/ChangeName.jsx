@@ -1,4 +1,3 @@
-// import settingsOption from "../assets/settingsOption.jpg"
 import noProfile from "../assets/noProfile.jpg"
 import edit from "../assets/edit.jpg"
 import { useState } from 'react'

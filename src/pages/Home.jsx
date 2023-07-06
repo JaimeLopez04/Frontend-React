@@ -34,7 +34,7 @@ function Home() {
 
     const nombres = {
         miLista: "Mis canciones",
-        misFavoritos: "Mis favaritos",
+        misFavoritos: "Mis favoritos",
         generos:"Géneros",
         configuracion: "Configuración",
         perfil: "Perfil"
@@ -58,7 +58,7 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                            {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                        {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
                     </div>
                     <div className="h-[86px]">
                         <Player3/>
