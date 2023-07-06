@@ -4,6 +4,7 @@ import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
 import MyList from "../Components/mi-lista/MyList"
+import GenresCards from "../Components/GenresCards"
 import Profile from "./Profile"
 import Settings from "./Settings"
 import { useLocation } from "react-router-dom"
@@ -31,13 +32,14 @@ function Home() {
         inicio: GroupCardsSong,
         miLista: MyList,
         configuracion: Settings,
+        generos: GenresCards,
         perfil: Profile
         // Agrega más páginas según tus necesidades
     };
 
     const nombres = {
         miLista: "Mis canciones",
-        misFavoritos: "Mis favaritos",
+        misFavoritos: "Mis favoritos",
         generos:"Géneros",
         configuracion: "Configuración",
         perfil: "Perfil"
@@ -48,6 +50,7 @@ function Home() {
 
     const nTitulo = nombres[currentPage];
     const hTitulo = titulo()
+
     return (
         <>
             <div className="flex h-screen"> 
@@ -60,7 +63,7 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                            {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                        {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
                     </div>
                     <div className="h-[86px]">
                         <Player3/>

@@ -27,7 +27,7 @@ To start the frontend project, follow these steps:
 
 2. Start the development server:
     ```
-    npm start
+    npm run dev
     ```
 
     This command will start the development server and open the application in your default browser.

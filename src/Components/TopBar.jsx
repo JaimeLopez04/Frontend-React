@@ -3,7 +3,7 @@ import SearchBar from './SearchBar'
 function TopBar(props) {
     
     return (
-        <div className='flex justify-between bg-white/10 items-center rounded-xl border border-solid border-white border-opacity-10 p-1'>
+        <div className='flex justify-between items-center rounded-xl p-1 border-b border-purple2 border-opacity-40'>
             <h1 className="p-2 pl-6 pt-1 font-bold text-4xl text-white whitespace-pre opacity-100">
                 {props.titulo}
             </h1>

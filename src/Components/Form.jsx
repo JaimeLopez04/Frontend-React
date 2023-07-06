@@ -81,7 +81,7 @@ const Form = () => {
                         <label className='text-lg font-medium'>Email</label>
                         <input 
                             className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
-                            placeholder="Enter your email"
+                            placeholder="Ingresa tu correo"
                             name='email'
                             value={email} 
                             type="email"
