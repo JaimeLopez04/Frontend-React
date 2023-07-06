@@ -96,7 +96,7 @@ const Player3 = () => {
         src={wave2}
         alt="music image"
       />
-      <div className="flex flex-col w-auto">
+      <div className="flex flex-col w-auto py-2">
         <h2 className="text-base font-bold text-white">
           {songs[currentSongIndex].tittle}
         </h2>
@@ -113,7 +113,7 @@ const Player3 = () => {
 
       <div className="flex flex-col justify-between p-3 leading-normal">
         <audio
-          className="w-80"
+          className=""
           src={songs[currentSongIndex].url}
           type="audio/mp3"
           controls
