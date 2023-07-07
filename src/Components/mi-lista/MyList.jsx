@@ -1,5 +1,5 @@
 import { FaPlus } from 'react-icons/fa'
-import { BsMusicNoteList, BsPen, BsPenFill, BsTrash } from 'react-icons/bs'
+import { BsMusicNoteList, BsPen, BsTrash } from 'react-icons/bs'
 import {ListSong} from './ListSong'
 import { useState } from 'react';
 import AddSongModal from '../modalWindow/AddSongModal';
@@ -50,9 +50,9 @@ function MyList(props){
                     )
                 })}
             </div>
-            <AddSongModal onClose={handleOnClose} visible={showMyModal}/>
-            <DeleteSongModal onClose={handleOnClose1} visible={showMyModal1}/>
-            <EditSongModal onClose={handleOnClose2} visible={showMyModal2}/>
+            <AddSongModal onClose={handleOnClose} visible={showMyModal} email={props.email} />
+            <DeleteSongModal onClose={handleOnClose1} visible={showMyModal1} email={props.email} />
+            <EditSongModal onClose={handleOnClose2} visible={showMyModal2} email={props.email} />
         </div>
     )
 }

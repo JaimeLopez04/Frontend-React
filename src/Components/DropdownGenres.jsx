@@ -2,44 +2,25 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { genres } from "../GenresData"
 
-//ARREGLO DE GÉNEROS
-// const options = [
-//     "Clasica",
-//     "Country",
-//     "Indie",
-//     "Pop",
-//     "Popular",
-//     "Rap",
-//     "Reggaeton",
-//     "Rock",
-//     "Salsa",
-//     "Vallenato",
-//     "Yankee",
-//     "No definido",
-//   ];
-
-const DropdownGenres = () => {
+const DropdownGenres = ({onGeneroSeleccionado}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
+    setSelectedOption(value.text);
     setIsOpen(false);
+    onGeneroSeleccionado(value.text);
   };
 
   return (
     <div className="inline-flex">
       <div className="relative ml-2 mt-1 inline-flex w-96 rounded-md bg-transparent border-b border-purple2 border-opacity-40">
         <div
-        //   onClick={toggling}
           className="w-[100%] rounded-l-md px-4 py-2"
         >
           {selectedOption || "Selecciona el género"}
         </div>
-        {/* <div className="w-[100%] rounded-l-md px-4 py-2">
-          Selecciona El Género
-        </div> */}
         <div className="relative">
           <button
             type="button"

@@ -46,10 +46,8 @@ const Form = () => {
             })
             .then(function (response) {
                 if (response.data.LoginSuccessfull){
-                    console.log(response.data.LoginSuccessfull);
                     const { email, lastNameUser, nameUser
                      } = response.data.LoginSuccessfull
-                     console.log( email, lastNameUser, nameUser)
                     navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser }})
                 }else {          
                     navigate("/")

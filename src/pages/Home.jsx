@@ -63,7 +63,7 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                        {PageComponent ? <PageComponent email={email}/> : <GroupCardsSong email={email}/>}
                     </div>
                     <div className="h-[86px]">
                         <Player3/>

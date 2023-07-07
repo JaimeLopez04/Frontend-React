@@ -1,12 +1,16 @@
-import React from 'react'
 import emptyHeart from "../../assets/emptyHeart.png";
 import fullHeart from "../../assets/fullHeart.png";
-const urlImage = "https://i.pinimg.com/564x/30/3d/83/303d83cb35d5e0ab0d8d6ac28c1890fa.jpg"
-import { useState } from "react";
+import { useState } from 'react'
 
 
-const CardSong = ({title, artist, gender, imageSongURL, favorite}) => {
-    console.log(imageSongURL);
+const CardSong = ({title, artist, gender, imageSongURL, favorite, email}) => {
+
+    const [isFavorite, setIsFavorite] = useState(favorite);
+
+    const changeImage = () => {
+            setIsFavorite(!isFavorite);
+    }
+
     return (
         <div className='bg-white/5  backdrop-blur-lg text-center rounded-xl items-center justify-center w-48'>
             <div className='flex items-center justify-center'>
@@ -19,10 +23,10 @@ const CardSong = ({title, artist, gender, imageSongURL, favorite}) => {
                     <div className='bg-purple3/40 px-2 py-1 rounded-full text-sm ml-1 text-center'>
                         {gender}
                     </div>
-                    <button className="" >
+                    <button className="" onClick={ changeImage }>
                         <img
-                        className="w-7 h-7"
-                        src={emptyHeart}
+                        className="mr-3 top-0 left-8 w-8 h-8 object-cover rounded-tr-xl"
+                        src={isFavorite ? fullHeart : emptyHeart}
                         alt="AW"
                         />
                     </button>
