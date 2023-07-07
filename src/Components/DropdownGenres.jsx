@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { genres } from "../GenresData"
 
 //ARREGLO DE GÉNEROS
-const options = [
-    "Clasica",
-    "Country",
-    "Indie",
-    "Pop",
-    "Popular",
-    "Rap",
-    "Reggaeton",
-    "Rock",
-    "Salsa",
-    "Vallenato",
-    "Yankee",
-    "No definido",
-  ];
+// const options = [
+//     "Clasica",
+//     "Country",
+//     "Indie",
+//     "Pop",
+//     "Popular",
+//     "Rap",
+//     "Reggaeton",
+//     "Rock",
+//     "Salsa",
+//     "Vallenato",
+//     "Yankee",
+//     "No definido",
+//   ];
 
 const DropdownGenres = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ const DropdownGenres = () => {
             className="absolute top-6 right-0 z-10 mt-4 w-fit min-w-auto origin-top-right rounded-md 
         border border-purple2 bg-black bg-opacity-75 shadow-lg max-h-48 overflow-y-auto"
           >
-            {options.map((option, index) => (
+            {genres.map((option, index) => (
               <div key={index}>
                 <button
                   onClick={onOptionClicked(option)}
@@ -62,7 +63,7 @@ const DropdownGenres = () => {
                   className="block rounded-md px-4 py-2 text-sm no-underline hover:bg-purple2
                 hover:bg-opacity-40 w-[100%]"
                 >
-                  {option}
+                  {option.text}
                 </button>
               </div>
             ))}
