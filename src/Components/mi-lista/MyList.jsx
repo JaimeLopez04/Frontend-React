@@ -3,8 +3,17 @@ import { BsMusicNoteList, BsPen, BsPenFill, BsTrash } from 'react-icons/bs'
 import {ListSong} from './ListSong'
 import { useState } from 'react';
 import AddSongModal from '../modalWindow/AddSongModal';
+import DeleteSongModal from '../modalWindow/DeleteSongModal';
+import EditSongModal from '../modalWindow/EditSongModal';
 
 function MyList(props){
+    //Ventana Modal Editar Canción
+    const [showMyModal2, setShowMyModal2] = useState(false);
+    const handleOnClose2 = () => setShowMyModal2(false);
+
+    //Ventana Modal Eliminar Canción
+    const [showMyModal1, setShowMyModal1] = useState(false);
+    const handleOnClose1 = () => setShowMyModal1(false);
 
     const [showMyModal, setShowMyModal] = useState(false);
     const handleOnClose = () => setShowMyModal(false);
@@ -30,14 +39,20 @@ function MyList(props){
                             {list.name}
                         </p>
                         <i className='ml-auto justify-between items-center flex'>
-                            <BsPen className='cursor-pointer'/>
-                            <BsTrash className='ml-4 cursor-pointer'/>
+                            <button onClick={() => setShowMyModal2(true)}>
+                                <BsPen  className='' />
+                            </button>
+                            <button onClick={() => setShowMyModal1(true)}>
+                                <BsTrash className='ml-4'/>
+                            </button>
                         </i>
                     </div>
                     )
                 })}
             </div>
             <AddSongModal onClose={handleOnClose} visible={showMyModal}/>
+            <DeleteSongModal onClose={handleOnClose1} visible={showMyModal1}/>
+            <EditSongModal onClose={handleOnClose2} visible={showMyModal2}/>
         </div>
     )
 }

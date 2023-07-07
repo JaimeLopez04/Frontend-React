@@ -1,4 +1,3 @@
-import React from "react";
 import Registro from "./auth/Registro";
 import Login from "./auth/Login";
 

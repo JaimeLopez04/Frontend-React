@@ -5,6 +5,9 @@ import { apiUrl } from "../api/apiurl";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 const FormRegistro = () => {
 
     const [email,setEmail] = useState('');
@@ -14,26 +17,62 @@ const FormRegistro = () => {
     const [phone,setPhone] = useState('');
     
     const navigate = useNavigate();
-    const registerUser = () => {
-        let url = apiUrl + 'register'
-        axios.defaults.headers.post['Content-Type'] = 'application/json';
-        axios.post(url, {
-            nameUser: nameUser,
-            lastNameUser: lastNameUser,
-            email: email,
-            password: password,
-            phone: phone
-        })
-        .then(function (response) {
-            if (response.data.Register === "Register Successful"){
-                navigate("/")
-            }else {
-                navigate("/register")
-            }
-        })
-        .catch(function (error) {
-            console.log("Error", error);
-        });
+
+    const MySwal = withReactContent(Swal)
+
+    const registerUser = (e) => {
+        e.preventDefault();
+
+        if(email.length === 0){
+            MySwal.fire({
+                icon: 'error',
+                title: 'El campo de correo no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
+        }
+        else if(password.length === 0){
+            MySwal.fire({
+                icon: 'error',
+                title: 'El campo de contraseña no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
+        } else {
+            let url = apiUrl + 'register'
+            axios.defaults.headers.post['Content-Type'] = 'application/json';
+            axios.post(url, {
+                nameUser: nameUser,
+                lastNameUser: lastNameUser,
+                email: email,
+                password: password,
+                phone: phone
+            })
+            .then(function (response) {
+                if (response.data.Register === "Register Successful"){
+                    navigate("/")
+                    MySwal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Usuario registrado con exito',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }else {
+                    navigate("/register")
+                    MySwal.fire({
+                        icon: 'error',
+                        title: 'Este usuario ya se encuentra registrado',
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
+                    
+                }
+            })
+            .catch(function (error) {
+                console.log("Error", error);
+            });
+        }
     };
 
     return (
@@ -74,6 +113,7 @@ const FormRegistro = () => {
                             placeholder="Ingresa tu email"
                             type="email"
                             value={email} 
+                            name="email"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -96,6 +136,7 @@ const FormRegistro = () => {
                         className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
                         placeholder="Ingresa tu contraseña"
                         type="password"
+                        name="password"
                         />
                     </div>
                     <div className="flex flex-col px-4">
@@ -106,7 +147,8 @@ const FormRegistro = () => {
                         className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
                         placeholder="Confirma tu contraseña"
                         type="password"
-                        value={password} 
+                        value={password}
+                        name="password" 
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>

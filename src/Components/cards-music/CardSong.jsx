@@ -5,18 +5,19 @@ const urlImage = "https://i.pinimg.com/564x/30/3d/83/303d83cb35d5e0ab0d8d6ac28c1
 import { useState } from "react";
 
 
-const CardSong = () => {
+const CardSong = ({title, artist, gender, imageSongURL, favorite}) => {
+    console.log(imageSongURL);
     return (
         <div className='bg-white/5  backdrop-blur-lg text-center rounded-xl items-center justify-center w-48'>
             <div className='flex items-center justify-center'>
-                <img src={urlImage} alt="Imagen" className='rounded-md object-cover w-36 h-32 mt-2' />
+                <img src={imageSongURL} alt="Imagen" className='rounded-md object-cover w-36 h-32 mt-2' />
             </div>
             <div className='p-4 cursor-default'>
-                <h2 className='font-semibold'>Nombre de la cancion</h2>
-                <h3 className='text-sm mt-1'> Nombre autor</h3>
+                <h2 className='font-semibold'>{ title }</h2>
+                <h3 className='text-sm mt-1'>{ artist }</h3>
                 <div className="flex justify-between items-center">
                     <div className='bg-purple3/40 px-2 py-1 rounded-full text-sm ml-1 text-center'>
-                        Genero
+                        {gender}
                     </div>
                     <button className="" >
                         <img

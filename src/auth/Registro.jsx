@@ -1,4 +1,3 @@
-import React from 'react'
 import ImgRegister from "../assets/ImgRegister.webp"
 import FormRegistro from '../Components/FormRegister'
 
