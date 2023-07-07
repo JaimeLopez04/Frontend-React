@@ -136,6 +136,6 @@ const Player3 = () => {
       </button>
     </div>
   );
-};
+};    
 
 export default Player3;
