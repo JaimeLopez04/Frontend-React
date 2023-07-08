@@ -18,7 +18,7 @@ const ChangePassword = () => {
                             <div className='flex flex-col'>
                                 <label className='text-lg font-medium'>Contraseña</label>
                                 <input 
-                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
+                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1'
                                     placeholder="Ingresa tu nueva contraseña"
                                     name='password'
                                     type="password"
@@ -27,7 +27,7 @@ const ChangePassword = () => {
                             <div className='flex flex-col mt-4'>
                                 <label className='text-lg font-medium'>Confirma contraseña</label>
                                 <input 
-                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
+                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1'
                                     placeholder="Ingresa tu nueva contraseña"
                                     name='password'
                                     type="password"

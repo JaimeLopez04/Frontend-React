@@ -87,7 +87,7 @@ const FormRegistro = () => {
                     <div className="flex flex-col">
                         <label className="text-lg font-medium">Nombre</label>
                         <input
-                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                         placeholder="Ingresa tu nombre"
                         type="text"
                         value={nameUser} 
@@ -97,7 +97,7 @@ const FormRegistro = () => {
                     <div className="flex flex-col px-4">
                         <label className="text-lg font-medium">Apellidos</label>
                         <input
-                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                         placeholder="Ingresa tu apellido"
                         type="text"
                         value={lastNameUser} 
@@ -105,11 +105,11 @@ const FormRegistro = () => {
                         />
                     </div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-4">
                     <div className="flex flex-col">
                         <label className="text-lg font-medium">Email</label>
                         <input
-                            className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                            className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                             placeholder="Ingresa tu email"
                             type="email"
                             value={email} 
@@ -120,7 +120,7 @@ const FormRegistro = () => {
                     <div className="flex flex-col px-4">
                         <label className="text-lg font-medium">Teléfono</label>
                         <input
-                            className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                            className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                             placeholder="Ingresa tu numero de teléfono"
                             type="phone"
                             value={phone} 
@@ -133,7 +133,7 @@ const FormRegistro = () => {
                     <div className="flex flex-col">
                         <label className="text-lg font-medium">Contraseña</label>
                         <input
-                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                         placeholder="Ingresa tu contraseña"
                         type="password"
                         name="password"
@@ -144,7 +144,7 @@ const FormRegistro = () => {
                         Confirma la contraseña
                         </label>
                         <input
-                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
+                        className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1"
                         placeholder="Confirma tu contraseña"
                         type="password"
                         value={password}
