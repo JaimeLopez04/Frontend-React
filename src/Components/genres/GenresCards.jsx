@@ -39,8 +39,12 @@ const GenresCards = ({ email }) => {
       const body = { gender : genero.text}
 
       let url = apiUrl + 'songs/searchGender';
-      axios.get(url, { data : body }, { params : { user : sendEmail }, headers : { 'Content-Type' : 'application/json' }})
-      .then(function (response) {
+      
+      axios.get(url, {
+        params: { user: sendEmail },
+        headers: { 'Content-Type': 'application/json' },
+        data: JSON.stringify(body),
+      }).then(function (response) {
           console.log(response.data);
       })
       .catch(function (error) {
