@@ -12,7 +12,7 @@ import MyFavorites from "../Components/favorites/MyFavorites"
 
 function Home() {
 
-    const [currentPlaylist, setCurrentPlaylist] = useState([]);
+    const [ currentSong, setCurrentSong] = useState('')
     
     const fecha = new Date()
     const hora = fecha.toLocaleTimeString('es-CO')
@@ -54,8 +54,6 @@ function Home() {
     const nTitulo = nombres[currentPage];
     const hTitulo = titulo()
 
-    console.log(currentPlaylist);
-
     return (
         <>
             <div className="flex h-screen"> 
@@ -68,10 +66,10 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent setCurrentPlaylist={setCurrentPlaylist} email={email} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentPlaylist={setCurrentPlaylist} email={email}/>}
+                        {PageComponent ? <PageComponent setCurrentSong={setCurrentSong} email={email} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentSong={setCurrentSong} email={email}/>}
                     </div>
                     <div className="h-[86px]">
-                        <Player3 currentPlaylist={currentPlaylist}/>
+                        <Player3 currentSong={currentSong}/>
                     </div>
                 </div>
             </div>

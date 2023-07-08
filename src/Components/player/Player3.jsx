@@ -3,22 +3,20 @@ import backwards3 from "../../assets/backwards3.png";
 import forwards3 from "../../assets/forwards3.png";
 import emptyHeart from "../../assets/emptyHeart.png";
 import fullHeart from "../../assets/fullHeart.png";
-import RacoonSoftLogo from "../../assets/RacoonSoftLogo.webp"
+import BeatLabLogo from "../../assets/BeatLabLogo.webp"
 
 import { useState, useRef, useEffect } from "react";
 
 // desde aquí cambios
 
-const Player3 = ( currentPlaylist ) => {
-
+const Player3 = (currentSong) => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   //ARREGLO DE CANCIONES -> modificado para conservar el atributo favorite (botón corazón)
-  const [songs, setSongs] = useState([currentPlaylist])
+  const [song, setSong] = useState(currentSong);
 
   const audioRef = useRef(null);
 
-  console.log(songs);
   // Para pasar a la siguiente canción cuando la actual termina
   useEffect(() => {
     const currentAudioRef = audioRef.current;
@@ -35,14 +33,14 @@ const Player3 = ( currentPlaylist ) => {
 
   // Para pasar las canciones
   const handlePlayNext = () => {
-    setCurrentSongIndex((prevIndex) => (prevIndex + 1) % songs.length);
+    setCurrentSongIndex((prevIndex) => (prevIndex + 1) % currentSong.length);
     audioRef.current.addEventListener("canplaythrough", handleAudioPlay);
     audioRef.current.load();
   };
 
   const handlePlayPrevious = () => {
     setCurrentSongIndex(
-      (prevIndex) => (prevIndex - 1 + songs.length) % songs.length
+      (prevIndex) => (prevIndex - 1 + currentSong.length) % currentSong.length
     );
     audioRef.current.addEventListener("canplaythrough", handleAudioPlay);
     audioRef.current.load();
@@ -53,12 +51,10 @@ const Player3 = ( currentPlaylist ) => {
     audioRef.current.play();
   };
 
-  console.log(songs);
-
   //nuevos cambiios ********** teniendo en cuenta el atributo favorite
   const handleToggleFavorite = () => {
-    setSongs((currentPlaylist) => {
-      return currentPlaylist.map((song, index) => {
+    setSong((prevSongs) => {
+      return prevSongs.map((song, index) => {
         if (index === currentSongIndex) {
           return {
             ...song,
@@ -70,23 +66,23 @@ const Player3 = ( currentPlaylist ) => {
     });
   };
 
-  
-
-  console.log(songs[currentSongIndex]);
+  useEffect(() => {
+    setSong(currentSong)
+  },[currentSong])
 
   return (
     <div className="flex flex-row items-centerborder border border-solid border-white border-opacity-10  rounded-lg bg-white/10 shadow-md shadow-purple2 m-1 ">
       <img
         className="object-cover w-24 rounded-t-lg h-24  md:h-20 md:w-20 md:rounded-none md:rounded-l-lg mr-3"
-        src={songs[currentSongIndex] ? songs[currentSongIndex].imageSongURL : RacoonSoftLogo}
-        alt="music image"
+        src={song.currentSong.imageSongURL ? song.currentSong.imageSongURL : BeatLabLogo}
+        alt={song.currentSong.title}
       />
       <div className="flex flex-col w-auto py-2">
         <h2 className="text-base font-bold text-white">
-          {songs[currentSongIndex] ? songs[currentSongIndex].title : ''}
+          {song.currentSong.title}
         </h2>
-        <p className="text-xs">{songs[currentSongIndex] ? songs[currentSongIndex].artist : ''}</p>
-        <p className="text-xs">{songs[currentSongIndex] ? songs[currentSongIndex].gender : ''}</p>
+        <p className="text-xs">{song.currentSong.artist}</p>
+        <p className="text-xs">{song.currentSong.gender}</p>
       </div>
       <button className="ml-auto" onClick={handlePlayPrevious}>
         <img
@@ -99,10 +95,11 @@ const Player3 = ( currentPlaylist ) => {
       <div className="flex flex-col justify-between p-3 leading-normal">
         <audio
           className=""
-          src={songs[currentSongIndex] ? songs[currentSongIndex].songURL : ''}
+          src={song.currentSong.songURL}
           type="audio/mp3"
           controls
           ref={audioRef}
+          autoPlay
         ></audio>
       </div>
       <button className="" onClick={handlePlayNext}>
@@ -115,7 +112,7 @@ const Player3 = ( currentPlaylist ) => {
       <button className="" onClick={handleToggleFavorite}>
         <img
           className="mr-3 top-0 left-8 w-8 h-8 object-cover rounded-tr-xl"
-          src={songs[currentSongIndex] ? songs[currentSongIndex].favorite ? fullHeart : emptyHeart : emptyHeart}
+          src={song.currentSong.favorite ? fullHeart : emptyHeart}
           alt="AW"
         />
       </button>

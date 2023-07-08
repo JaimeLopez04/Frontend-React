@@ -4,7 +4,7 @@ import { apiUrl } from '../../api/apiurl';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const GroupCardsSong = ({email, setCurrentPlaylist}) => {
+const GroupCardsSong = ({email, setCurrentSong}) => {
     const [arraySongs, setArraySongs] = useState([]);
     const sendEmail = email
 
@@ -30,9 +30,8 @@ const GroupCardsSong = ({email, setCurrentPlaylist}) => {
     },[]);
 
     const handleSongClick = (song) => {
-        setCurrentPlaylist([song, ...arraySongs.filter((prevSong) => prevSong !== song)]);
-      };
-      
+        setCurrentSong(song)
+    }
 
     return (
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
