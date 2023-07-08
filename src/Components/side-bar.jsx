@@ -1,4 +1,4 @@
-import UserProfile from "./userProfile";
+import UserProfile from "./UserProfile";
 import SideBarData from "./SideBarData";
 import AppName from "./AppName";
 
