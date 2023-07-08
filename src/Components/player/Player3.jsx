@@ -1,45 +1,24 @@
-import rosa from "../../assets/rosa.mp3";
 import "./Player.css";
 import backwards3 from "../../assets/backwards3.png";
 import forwards3 from "../../assets/forwards3.png";
 import emptyHeart from "../../assets/emptyHeart.png";
 import fullHeart from "../../assets/fullHeart.png";
-import wave2 from "../../assets/wave2.gif";
+import RacoonSoftLogo from "../../assets/RacoonSoftLogo.webp"
 
 import { useState, useRef, useEffect } from "react";
 
 // desde aquí cambios
 
-const Player3 = () => {
+const Player3 = ( currentPlaylist ) => {
+
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   //ARREGLO DE CANCIONES -> modificado para conservar el atributo favorite (botón corazón)
-  const [songs, setSongs] = useState([
-    {
-      tittle: "Chords of life",
-      artist: "Madza",
-      genre: "idk",
-      url: "https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3",
-      favorite: false,
-    },
-    {
-      tittle: "Late night drive",
-      artist: "Madza",
-      genre: "idk",
-      url: "https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3",
-      favorite: false,
-    },
-    {
-      tittle: "Suspenso mexican",
-      artist: "Virgen de guadalupe",
-      genre: "Noveleishon",
-      url: rosa,
-      favorite: false,
-    },
-  ]);
+  const [songs, setSongs] = useState([currentPlaylist])
 
   const audioRef = useRef(null);
 
+  console.log(songs);
   // Para pasar a la siguiente canción cuando la actual termina
   useEffect(() => {
     const currentAudioRef = audioRef.current;
@@ -74,10 +53,12 @@ const Player3 = () => {
     audioRef.current.play();
   };
 
+  console.log(songs);
+
   //nuevos cambiios ********** teniendo en cuenta el atributo favorite
   const handleToggleFavorite = () => {
-    setSongs((prevSongs) => {
-      return prevSongs.map((song, index) => {
+    setSongs((currentPlaylist) => {
+      return currentPlaylist.map((song, index) => {
         if (index === currentSongIndex) {
           return {
             ...song,
@@ -89,19 +70,23 @@ const Player3 = () => {
     });
   };
 
+  
+
+  console.log(songs[currentSongIndex]);
+
   return (
     <div className="flex flex-row items-centerborder border border-solid border-white border-opacity-10  rounded-lg bg-white/10 shadow-md shadow-purple2 m-1 ">
       <img
         className="object-cover w-24 rounded-t-lg h-24  md:h-20 md:w-20 md:rounded-none md:rounded-l-lg mr-3"
-        src={wave2}
+        src={songs[currentSongIndex] ? songs[currentSongIndex].imageSongURL : RacoonSoftLogo}
         alt="music image"
       />
       <div className="flex flex-col w-auto py-2">
         <h2 className="text-base font-bold text-white">
-          {songs[currentSongIndex].tittle}
+          {songs[currentSongIndex] ? songs[currentSongIndex].title : ''}
         </h2>
-        <p className="text-xs">{songs[currentSongIndex].artist}</p>
-        <p className="text-xs">{songs[currentSongIndex].genre}</p>
+        <p className="text-xs">{songs[currentSongIndex] ? songs[currentSongIndex].artist : ''}</p>
+        <p className="text-xs">{songs[currentSongIndex] ? songs[currentSongIndex].gender : ''}</p>
       </div>
       <button className="ml-auto" onClick={handlePlayPrevious}>
         <img
@@ -114,7 +99,7 @@ const Player3 = () => {
       <div className="flex flex-col justify-between p-3 leading-normal">
         <audio
           className=""
-          src={songs[currentSongIndex].url}
+          src={songs[currentSongIndex] ? songs[currentSongIndex].songURL : ''}
           type="audio/mp3"
           controls
           ref={audioRef}
@@ -130,7 +115,7 @@ const Player3 = () => {
       <button className="" onClick={handleToggleFavorite}>
         <img
           className="mr-3 top-0 left-8 w-8 h-8 object-cover rounded-tr-xl"
-          src={songs[currentSongIndex].favorite ? fullHeart : emptyHeart}
+          src={songs[currentSongIndex] ? songs[currentSongIndex].favorite ? fullHeart : emptyHeart : emptyHeart}
           alt="AW"
         />
       </button>

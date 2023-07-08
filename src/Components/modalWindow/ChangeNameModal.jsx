@@ -20,8 +20,6 @@ const ChangeNameModal = ({visible, onClose, email}) => {
 
         e.preventDefault();
 
-        const isEmpty = formData.entries().next().done;
-
         if(name.length === 0){
             MySwal.fire({
                 icon: 'error',
@@ -34,16 +32,17 @@ const ChangeNameModal = ({visible, onClose, email}) => {
 
             let url = apiUrl + 'updateName'
 
-            axios.patch(url, {
+            const body = {'name' : name}
+
+            axios.patch(url, body, {
                 headers:{ 'Content-Type' : 'application/json'},
-                params:{ user: email },
+                params:{ user: email }
             })
             .then(function (response) {
-                console.log(response);
-                if (response.data.PhotoUser === "Photo Uploaded Successful"){
+                if (response.data.updateName === "updateName Successful"){
                     MySwal.fire({
                         icon: 'success',
-                        title: 'Imagen actualizada satisfactoriamente',
+                        title: 'Su nombre ha sido actualizado satisfactoriamente',
                         showConfirmButton: false,
                         timer: 1600
                     })
@@ -51,7 +50,7 @@ const ChangeNameModal = ({visible, onClose, email}) => {
                 }else {
                     MySwal.fire({
                         icon: 'error',
-                        title: 'Esta canción no puede ser agregada intentalo nuevamente luego',
+                        title: 'El nombre no pudo ser actualizado intentalo nuevamente luego',
                         background:"#E8E5F1",
                         color: "#000" 
                     })
@@ -59,7 +58,7 @@ const ChangeNameModal = ({visible, onClose, email}) => {
                 }
             })
             .catch(function (error) {
-                console.log(formData.fileImage);
+                console.log(email );
                 console.log("Error", error);
             });
         }
@@ -82,12 +81,15 @@ const ChangeNameModal = ({visible, onClose, email}) => {
                 <div className="flex flex-col">
                     <input id="archivo"
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
-                    placeholder="Ingrese un nuevo nombre">                        
+                    placeholder="Ingrese un nuevo nombre"
+                    value={name}
+                    onChange={ (e) => setName(e.target.value)}>                        
                     </input>
                 </div>
             </div>
             <div className="">
-                <button className="col-span-1 bg-transparent hover:bg-purple2 border border-purple2 px-6 py-2 rounded-md">
+                <button className="col-span-1 bg-transparent hover:bg-purple2 border border-purple2 px-6 py-2 rounded-md"
+                onClick={ handleSubmit }>
                     Guardar
                 </button>
             </div>
