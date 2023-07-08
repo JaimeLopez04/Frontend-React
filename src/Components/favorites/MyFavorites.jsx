@@ -6,14 +6,11 @@ import axios from 'axios';
 
 const MyFavorites = (props) => {
 
-    const [isFavorite, setIsFavorite] = useState('')
-
     const [arraySongs, setArraySongs] = useState([]);
+
     const sendEmail = props.email
 
     useEffect(() => {
-        axios.defaults.headers.post['Content-Type'] = 'application/json';
-
         let url = apiUrl + 'songs/listFavorite';
         axios.get(url, {
             params:{
@@ -25,18 +22,50 @@ const MyFavorites = (props) => {
         })
         .then(function (response) {
             const arraySongs = response.data.SongsFavorites;
-            setArraySongs(arraySongs);
+            // Agregar una propiedad "isFavorite" a cada canción
+            const songsWithFavorite = arraySongs.map(song => ({
+              ...song,
+              isFavorite: false
+            }));
+            setArraySongs(songsWithFavorite);
         })
         .catch(function (error) {
             console.log(error, 'error');
         });
     },[]);
 
-
-    //TODO implement in only one item
-    const changeHeart = () => {
-        setIsFavorite(!isFavorite)
+    const changeHeart = (songId) => {
+        setArraySongs(prevSongs => {
+          return prevSongs.map(song => {
+            if (song.id === songId) {
+              return {
+                ...song,
+                isFavorite: !song.isFavorite
+              };
+            }
+            return song;
+          });
+        });
     }
+
+    const saveFavorites = () => {
+        // Filtrar las canciones marcadas como favoritas
+        const favoriteSongs = arraySongs.filter(song => song.isFavorite);
+        // Hacer la solicitud POST al servidor con los favoritos
+        axios.post(apiUrl + 'songs/saveFavorites', {
+            user: sendEmail,
+            favoriteSongs: favoriteSongs
+        })
+        .then(function (response) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(response);
+        })
+        .catch(function (error) {
+            // Manejar el error si ocurre
+            console.log(error);
+        });
+    }
+
     return (
         <div className='p-3'>
             <div className=' mt-4 w-full '>
@@ -46,12 +75,14 @@ const MyFavorites = (props) => {
                         <i className='text-lg mr-4'>
                             <BsMusicNoteList />
                         </i>
-                        <p>
-                            {song.title} 
-                        </p>
+                        <button>
+                            <p>
+                                {song.title} 
+                            </p>
+                        </button>
                         <i className='ml-auto justify-between items-center flex'>
-                            <button onClick={changeHeart}>
-                                { isFavorite ? <BsHeart className='ml-4'/> : <BsHeartFill className='ml-4'/>}
+                            <button onClick={() => changeHeart(song.id)}>
+                                { song.isFavorite ? <BsHeart className='ml-4'/> : <BsHeartFill className='ml-4'/>}
                             </button>
                         </i>
                     </div>

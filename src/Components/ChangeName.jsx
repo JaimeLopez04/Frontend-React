@@ -17,7 +17,7 @@ const ChangeName = (props) => {
                     Nombre
                 </h5>
                 <p className="mb-3 w-52 text-base font-bold text-gray-700 dark:text-gray-400 ml-9">
-                    Edward Correa 
+                    {props.nameUser}
                 </p>
                 {/* <button className="bg-purple bg-opacity-40 w-40 h-9 m-auto font-bold rounded-full hover:bg-purple">
                     Botón

@@ -9,9 +9,10 @@ import Profile from "./Profile"
 import Settings from "./Settings"
 import { useLocation } from "react-router-dom"
 import MyFavorites from "../Components/favorites/MyFavorites"
-// import { useLocation } from "react-router-dom"
 
 function Home() {
+
+    const [currentPlaylist, setCurrentPlaylist] = useState([]);
     
     const fecha = new Date()
     const hora = fecha.toLocaleTimeString('es-CO')
@@ -53,6 +54,8 @@ function Home() {
     const nTitulo = nombres[currentPage];
     const hTitulo = titulo()
 
+    console.log(currentPlaylist);
+
     return (
         <>
             <div className="flex h-screen"> 
@@ -65,10 +68,10 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent email={email} userPhotoURL={userPhotoURL}/> : <GroupCardsSong email={email}/>}
+                        {PageComponent ? <PageComponent setCurrentPlaylist={setCurrentPlaylist} email={email} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentPlaylist={setCurrentPlaylist} email={email}/>}
                     </div>
                     <div className="h-[86px]">
-                        <Player3/>
+                        <Player3 currentPlaylist={currentPlaylist}/>
                     </div>
                 </div>
             </div>
