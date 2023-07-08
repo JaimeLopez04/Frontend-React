@@ -21,14 +21,16 @@ function Home() {
     const { email, lastNameUser, nameUser , userPhotoURL} = state;
 
     let titulo = () =>{
-        if (hora >=  '00:00:00 AM' && hora <= '12:00:00 PM'){
+        if (hora >=  '12:00:00 a. m.' && hora <= '12:00:00 p. m.'){
             return 'Buenos días'
-        } else if (hora <= '6:30:00 PM'){
+        } else if (hora <= '6:30:00 p. m.'){
             return 'Buenas tardes'
         }else{
             return "Buenas noches"
         }
     }
+
+    console.log(hora);
 
     const pageComponents = {
         inicio: GroupCardsSong,

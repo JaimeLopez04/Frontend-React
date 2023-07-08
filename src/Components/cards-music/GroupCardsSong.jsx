@@ -37,7 +37,7 @@ const GroupCardsSong = ({email, setCurrentSong}) => {
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
             {arraySongs.map((song) => ( 
                 <button key={song.id} onClick={ () => handleSongClick(song) }>
-                    <CardSong key={song.id} title={song.title} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite}email={email} />
+                    <CardSong key={song.id} title={song.title}  handleSongClick={handleSongClick} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite}email={email} />
                 </button>
             ))} 
         </div>
