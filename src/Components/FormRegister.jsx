@@ -12,6 +12,8 @@ const FormRegistro = () => {
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [nameUser,setNameUser] = useState('');
     const [lastNameUser,setLastNameUser] = useState('');
     const [phone,setPhone] = useState('');
@@ -19,6 +21,16 @@ const FormRegistro = () => {
     const navigate = useNavigate();
 
     const MySwal = withReactContent(Swal)
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+        setPasswordsMatch(e.target.value === confirmPassword);
+      };
+    
+      const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value);
+        setPasswordsMatch(e.target.value === password);
+      };
 
     const registerUser = (e) => {
         e.preventDefault();
@@ -137,6 +149,8 @@ const FormRegistro = () => {
                         placeholder="Ingresa tu contraseña"
                         type="password"
                         name="password"
+                        value={password}
+                        onChange={handlePasswordChange}
                         />
                     </div>
                     <div className="flex flex-col px-4">
@@ -147,9 +161,9 @@ const FormRegistro = () => {
                         className="w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent"
                         placeholder="Confirma tu contraseña"
                         type="password"
-                        value={password}
                         name="password" 
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={confirmPassword}
+                        onChange={handleConfirmPasswordChange}
                         />
                     </div>
                 </div>
@@ -168,6 +182,14 @@ const FormRegistro = () => {
                     </button>
                 </div>
             </div>
+            {!passwordsMatch && (
+                    MySwal.fire({
+                        icon: 'error',
+                        title: 'Las contraseñas no coinciden',
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
+                ) }
         </div>
     );
 };

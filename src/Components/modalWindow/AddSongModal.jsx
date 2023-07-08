@@ -55,9 +55,6 @@ const AddSongModal = ({visible, onClose, email}) => {
 
         } else {
 
-            console.log(formData);
-            console.log(genero);
-
             let url = apiUrl + 'songs/upload'
 
             formData.append('title', titulo);
@@ -68,20 +65,17 @@ const AddSongModal = ({visible, onClose, email}) => {
 
             axios.post(url, formData, {
                 headers:{ 'Content-Type' : 'multipart/form-data'},
-                params:{ email }
+                params:{ user: email }
             })
             .then(function (response) {
                 if (response.data.Upload === "Successfull"){
-                    console.log('si suben las canciones');
                     MySwal.fire({
-                        position: 'top-end',
                         icon: 'success',
                         title: 'Canción registrado con exito',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1600
                     })
                 }else {
-                    console.log(response);
                     MySwal.fire({
                         icon: 'error',
                         title: 'Esta canción no puede ser agregada intentalo nuevamente luego',
@@ -92,9 +86,7 @@ const AddSongModal = ({visible, onClose, email}) => {
                 }
             })
             .catch(function (error) {
-                console.log(formData.values);
                 console.log("Error", error);
-                console.log('Mi console log');
             });
         }
     }
