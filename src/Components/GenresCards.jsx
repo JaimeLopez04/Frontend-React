@@ -1,4 +1,3 @@
-import albumcover from "../assets/albumcover.jpg";
 import { genres } from "../GenresData";
 
 const GenresCards = () => {

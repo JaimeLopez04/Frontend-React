@@ -32,14 +32,13 @@ const ChangeNameModal = ({visible, onClose, email}) => {
 
             let url = apiUrl + 'updateName'
 
-            axios.patch(url, {
-                name: name
-            },{
+            const body = {'name' : name}
+
+            axios.patch(url, body, {
                 headers:{ 'Content-Type' : 'application/json'},
                 params:{ user: email }
             })
             .then(function (response) {
-                console.log(response);
                 if (response.data.updateName === "updateName Successful"){
                     MySwal.fire({
                         icon: 'success',
@@ -59,6 +58,7 @@ const ChangeNameModal = ({visible, onClose, email}) => {
                 }
             })
             .catch(function (error) {
+                console.log(email );
                 console.log("Error", error);
             });
         }
