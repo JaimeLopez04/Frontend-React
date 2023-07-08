@@ -8,6 +8,7 @@ import GenresCards from "../Components/GenresCards"
 import Profile from "./Profile"
 import Settings from "./Settings"
 import { useLocation } from "react-router-dom"
+import MyFavorites from "../Components/favorites/MyFavorites"
 // import { useLocation } from "react-router-dom"
 
 function Home() {
@@ -31,6 +32,7 @@ function Home() {
     const pageComponents = {
         inicio: GroupCardsSong,
         miLista: MyList,
+        misFavoritos: MyFavorites,
         configuracion: Settings,
         generos: GenresCards,
         perfil: Profile

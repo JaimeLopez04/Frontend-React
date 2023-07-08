@@ -18,7 +18,7 @@ const EnterCode = () => {
                             <div className='flex flex-col'>
                                 <label className='text-lg font-medium'>Codigo</label>
                                 <input 
-                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent'
+                                    className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1'
                                     placeholder="Ingresa codigo de verificación"
                                     name='codigo'
                                     type="number"
