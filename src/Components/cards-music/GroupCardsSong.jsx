@@ -3,8 +3,14 @@ import CardSong from './CardSong'
 import { apiUrl } from '../../api/apiurl';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { BsChevronDoubleLeft } from 'react-icons/bs';
 
-const GroupCardsSong = ({email, setCurrentPlaylist}) => {
+const GroupCardsSong = ({email, genre, onGoBack, fromGenresCards}) => {
+
+    const handleGoBack = () => {
+        onGoBack();
+    };
+    
     const [arraySongs, setArraySongs] = useState([]);
     const sendEmail = email
 
@@ -35,6 +41,13 @@ const GroupCardsSong = ({email, setCurrentPlaylist}) => {
       
 
     return (
+        <>
+        {fromGenresCards && (
+            <button className='bg-fuchsia-950/80 p-1 flex justify-between items-center relative rounded-md' onClick={handleGoBack}>
+                <BsChevronDoubleLeft className='mr-2'/>
+                Volver
+            </button>
+        )}
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
             {arraySongs.map((song) => ( 
                 <button key={song.id} onClick={ () => handleSongClick(song) }>
@@ -42,6 +55,7 @@ const GroupCardsSong = ({email, setCurrentPlaylist}) => {
                 </button>
             ))} 
         </div>
+        </>
     )
 }
 
