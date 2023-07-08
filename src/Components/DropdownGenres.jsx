@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { genres } from "../GenresData"
 
 const DropdownGenres = ({onGeneroSeleccionado}) => {
   const [isOpen, setIsOpen] = useState(false);

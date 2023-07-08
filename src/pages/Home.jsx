@@ -4,12 +4,11 @@ import GroupCardsSong from "../Components/cards-music/GroupCardsSong"
 import Player3 from "../Components/player/Player3"
 import TopBar from "../Components/TopBar"
 import MyList from "../Components/mi-lista/MyList"
-import GenresCards from "../Components/GenresCards"
+import GenresCards from "../Components/genres/GenresCards"
 import Profile from "./Profile"
 import Settings from "./Settings"
 import { useLocation } from "react-router-dom"
 import MyFavorites from "../Components/favorites/MyFavorites"
-// import { useLocation } from "react-router-dom"
 
 function Home() {
     
