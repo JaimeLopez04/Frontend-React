@@ -1,17 +1,55 @@
-import { useState } from "react";
-import albumcover from "../../assets/albumcover.jpg";
+import { useEffect, useState } from "react";
 import { genres } from "./GenresData";
 import GroupCardsSong from "../cards-music/GroupCardsSong";
+import { apiUrl } from "../../api/apiurl";
+import axios from "axios";
 
-const GenresCards = () => {
+const GenresCards = ({ email }) => {
 
   const [showSelectedGenre, setShowSelectedGenre] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(null);
-
+  const [genero, setGenero] = useState('')
 
   const handleClick = (index) => {
     setShowSelectedGenre(true);
-    setSelectedGenre(genres[index]);
+    setSelectedGenre((prevSelectedGenre) => {
+      if (prevSelectedGenre === null) {
+        return [genres[index]];
+      } else {
+        return [...prevSelectedGenre, genres[index]];
+      }
+    });
+    filtrarGenero(genres[index]);
+  };
+  
+  
+  const sendEmail = email
+
+  console.log(email);
+
+    const filtrarGenero = (genero) => {
+
+      if (genero === null) {
+        // No hay género seleccionado, puedes manejar esta situación como desees
+        return (setGenero('Clasica'));
+      }
+
+      axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+      const body = { gender : genero.text}
+
+      let url = apiUrl + 'songs/searchGender';
+      
+      axios.get(url, {
+        params: { user: sendEmail },
+        headers: { 'Content-Type': 'application/json' },
+        data: JSON.stringify(body),
+      }).then(function (response) {
+          console.log(response.data);
+      })
+      .catch(function (error) {
+          console.log(error, 'error');
+      });
   };
 
   return (

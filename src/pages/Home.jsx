@@ -12,7 +12,9 @@ import MyFavorites from "../Components/favorites/MyFavorites"
 
 function Home() {
 
-    const [currentPlaylist, setCurrentPlaylist] = useState([]);
+    const [ currentSong, setCurrentSong] = useState('')
+
+    const [isFavorite, setIsFavorite] = useState('');
     
     const fecha = new Date()
     const hora = fecha.toLocaleTimeString('es-CO')
@@ -21,9 +23,9 @@ function Home() {
     const { email, lastNameUser, nameUser , userPhotoURL} = state;
 
     let titulo = () =>{
-        if (hora >=  '00:00:00 AM' && hora <= '12:00:00 PM'){
+        if (hora >=  '12:00:00 a. m.' && hora <= '12:00:00 p. m.'){
             return 'Buenos días'
-        } else if (hora <= '6:30:00 PM'){
+        } else if (hora <= '6:30:00 p. m.'){
             return 'Buenas tardes'
         }else{
             return "Buenas noches"
@@ -54,8 +56,6 @@ function Home() {
     const nTitulo = nombres[currentPage];
     const hTitulo = titulo()
 
-    console.log(currentPlaylist);
-
     return (
         <>
             <div className="flex h-screen"> 
@@ -68,10 +68,10 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent setCurrentPlaylist={setCurrentPlaylist} email={email} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentPlaylist={setCurrentPlaylist} email={email}/>}
+                        {PageComponent ? <PageComponent setCurrentSong={setCurrentSong} email={email} setIsFavorite={setIsFavorite} isFavorite={isFavorite} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentSong={setCurrentSong} setIsFavorite={setIsFavorite} isFavorite={isFavorite} email={email}/>}
                     </div>
                     <div className="h-[86px]">
-                        <Player3 currentPlaylist={currentPlaylist}/>
+                        <Player3 currentSong={currentSong} isFavorite={isFavorite} setIsFavorite={setIsFavorite} email={email}/>
                     </div>
                 </div>
             </div>

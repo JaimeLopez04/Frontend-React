@@ -1,13 +1,34 @@
+import axios from "axios";
+import { apiUrl } from "../../api/apiurl";
 import emptyHeart from "../../assets/emptyHeart.png";
 import fullHeart from "../../assets/fullHeart.png";
-import { useState } from 'react'
 
 
-const CardSong = ({title, artist, gender, imageSongURL, favorite, email}) => {
+const CardSong = ({title, artist, gender, imageSongURL, setIsFavorite ,isFavorite, email}) => {
 
-    const [isFavorite, setIsFavorite] = useState(favorite);
 
     const changeImage = () => {
+
+            let url = apiUrl + 'songs/favorite'
+            let sendEmail = email
+            let body = { title : title }
+
+            axios.patch(url, body,{
+                params: { user : sendEmail },
+                Headers: {'Content-Type' : 'application/json'}
+            },)
+            .then(function(response){
+                if (response.data.isFavorite){
+                    setIsFavorite(response.data.isFavorite)
+                }
+                else {
+                    setIsFavorite(!isFavorite)
+                }
+            })
+            .catch(function(error){
+                console.log('Error', error);
+            })
+
             setIsFavorite(!isFavorite);
     }
 

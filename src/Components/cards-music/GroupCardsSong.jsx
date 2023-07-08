@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BsChevronDoubleLeft } from 'react-icons/bs';
 
-const GroupCardsSong = ({email, genre, onGoBack, fromGenresCards}) => {
+const GroupCardsSong = ({email, onGoBack, fromGenresCards, setCurrentSong}) => {
 
     const handleGoBack = () => {
         onGoBack();
@@ -13,6 +13,7 @@ const GroupCardsSong = ({email, genre, onGoBack, fromGenresCards}) => {
     
     const [arraySongs, setArraySongs] = useState([]);
     const sendEmail = email
+
 
     useEffect(() => {
         axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -36,9 +37,8 @@ const GroupCardsSong = ({email, genre, onGoBack, fromGenresCards}) => {
     },[]);
 
     const handleSongClick = (song) => {
-        setCurrentPlaylist([song, ...arraySongs.filter((prevSong) => prevSong !== song)]);
-      };
-      
+        setCurrentSong(song)
+    }
 
     return (
         <>
@@ -51,7 +51,7 @@ const GroupCardsSong = ({email, genre, onGoBack, fromGenresCards}) => {
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
             {arraySongs.map((song) => ( 
                 <button key={song.id} onClick={ () => handleSongClick(song) }>
-                    <CardSong key={song.id} title={song.title} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite}email={email} />
+                    <CardSong key={song.id} title={song.title}  handleSongClick={handleSongClick} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite} email={email} />
                 </button>
             ))} 
         </div>
