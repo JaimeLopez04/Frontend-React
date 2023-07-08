@@ -6,10 +6,12 @@ import fullHeart from "../../assets/fullHeart.png";
 import BeatLabLogo from "../../assets/BeatLabLogo.webp"
 
 import { useState, useRef, useEffect } from "react";
+import { apiUrl } from "../../api/apiurl";
+import axios from "axios";
 
 // desde aquí cambios
 
-const Player3 = (currentSong) => {
+const Player3 = (currentSong, isFavorite, setIsFavorite, email) => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   //ARREGLO DE CANCIONES -> modificado para conservar el atributo favorite (botón corazón)
@@ -53,6 +55,28 @@ const Player3 = (currentSong) => {
 
   //nuevos cambiios ********** teniendo en cuenta el atributo favorite
   const handleToggleFavorite = () => {
+
+        let url = apiUrl + 'songs/favorite'
+        let sendEmail = email
+        let body = { title : currentSong.title }
+
+        axios.patch(url, body,{
+            params: { user : sendEmail },
+            Headers: {'Content-Type' : 'application/json'}
+        },)
+        .then(function(response){
+            if (response.data.isFavorite){
+                setIsFavorite(response.data.isFavorite)
+            }
+            else {
+                setIsFavorite(!isFavorite)
+            }
+        })
+        .catch(function(error){
+            console.log('Error', error);
+        })
+    setIsFavorite(isFavorite)
+
     setSong((prevSongs) => {
       return prevSongs.map((song, index) => {
         if (index === currentSongIndex) {

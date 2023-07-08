@@ -13,6 +13,8 @@ import MyFavorites from "../Components/favorites/MyFavorites"
 function Home() {
 
     const [ currentSong, setCurrentSong] = useState('')
+
+    const [isFavorite, setIsFavorite] = useState('');
     
     const fecha = new Date()
     const hora = fecha.toLocaleTimeString('es-CO')
@@ -29,8 +31,6 @@ function Home() {
             return "Buenas noches"
         }
     }
-
-    console.log(hora);
 
     const pageComponents = {
         inicio: GroupCardsSong,
@@ -68,10 +68,10 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent setCurrentSong={setCurrentSong} email={email} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentSong={setCurrentSong} email={email}/>}
+                        {PageComponent ? <PageComponent setCurrentSong={setCurrentSong} email={email} setIsFavorite={setIsFavorite} isFavorite={isFavorite} userPhotoURL={userPhotoURL} lastNameUser={lastNameUser} nameUser={nameUser}/> : <GroupCardsSong setCurrentSong={setCurrentSong} setIsFavorite={setIsFavorite} isFavorite={isFavorite} email={email}/>}
                     </div>
                     <div className="h-[86px]">
-                        <Player3 currentSong={currentSong}/>
+                        <Player3 currentSong={currentSong} isFavorite={isFavorite} setIsFavorite={setIsFavorite} email={email}/>
                     </div>
                 </div>
             </div>
