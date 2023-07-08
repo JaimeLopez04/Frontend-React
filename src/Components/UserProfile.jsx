@@ -1,4 +1,4 @@
-const userProfile = ({toggle, email, lastNameUser, nameUser, userPhotoURL}) => {
+const UserProfile = ({toggle, email, lastNameUser, nameUser, userPhotoURL}) => {
 
   console.log(userPhotoURL);
   
@@ -18,4 +18,4 @@ const userProfile = ({toggle, email, lastNameUser, nameUser, userPhotoURL}) => {
   )
 }
 
-export default userProfile
+export default UserProfile
