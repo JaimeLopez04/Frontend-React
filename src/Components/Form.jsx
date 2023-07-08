@@ -46,14 +46,11 @@ const Form = () => {
             })
             .then(function (response) {
                 if (response.data.LoginSuccessfull){
-                    console.log(response.data.LoginSuccessfull);
-                    const { email, lastNameUser, nameUser
+                    const { email, lastNameUser, nameUser, userPhotoURL
                      } = response.data.LoginSuccessfull
-                     console.log( email, lastNameUser, nameUser)
-                    navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser }})
+                    navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser, userPhotoURL: userPhotoURL }})
                 }else {          
                     navigate("/")
-                    console.log(response);
                     MySwal.fire({
                         icon: 'error',
                         title: response.data.LoginFailed,
@@ -101,7 +98,9 @@ const Form = () => {
                     </div>
                 </form>
                 <div className='text-center'>
-                    <button className='font-medium text-base text-violet-500 mt-5'>¿Olvidaste la contraseña?</button>
+                    <button className='font-medium text-base text-violet-500 mt-5'>
+                        <a href="/sendEmail"> ¿Olvidaste la contraseña? </a>
+                    </button>
                 </div>
                 <div className='mt-6 flex flex-col gap-y-4'>
                     <button 

@@ -1,9 +1,69 @@
+import axios from "axios";
+import { apiUrl } from "../../api/apiurl";
 import close from "../../assets/close.png"
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
-const ChangeNameModal = ({visible, onClose}) => {
+const ChangeNameModal = ({visible, onClose, email}) => {
+
+    const MySwal = withReactContent(Swal)
+
+    const [name, setName] = useState('')
+
+
     const handleOnClose = (e) => {
         if(e.target.id === 'container') onClose()
     };
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+
+        const isEmpty = formData.entries().next().done;
+
+        if(name.length === 0){
+            MySwal.fire({
+                icon: 'error',
+                title: 'El nombre no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
+
+        } else {
+
+            let url = apiUrl + 'updateName'
+
+            axios.patch(url, {
+                headers:{ 'Content-Type' : 'application/json'},
+                params:{ user: email },
+            })
+            .then(function (response) {
+                console.log(response);
+                if (response.data.PhotoUser === "Photo Uploaded Successful"){
+                    MySwal.fire({
+                        icon: 'success',
+                        title: 'Imagen actualizada satisfactoriamente',
+                        showConfirmButton: false,
+                        timer: 1600
+                    })
+                    if (!visible) return null;
+                }else {
+                    MySwal.fire({
+                        icon: 'error',
+                        title: 'Esta canción no puede ser agregada intentalo nuevamente luego',
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
+                    
+                }
+            })
+            .catch(function (error) {
+                console.log(formData.fileImage);
+                console.log("Error", error);
+            });
+        }
+    }
 
     if (!visible) return null;
 

@@ -17,7 +17,7 @@ function Home() {
     const hora = fecha.toLocaleTimeString('es-CO')
 
     const { state } = useLocation();
-    const { email, lastNameUser, nameUser } = state;
+    const { email, lastNameUser, nameUser , userPhotoURL} = state;
 
     let titulo = () =>{
         if (hora >=  '00:00:00 AM' && hora <= '12:00:00 PM'){
@@ -57,7 +57,7 @@ function Home() {
         <>
             <div className="flex h-screen"> 
                 <div className="w-1/4 mt-3 mr-4">
-                    <Sidebar setCurrentPage={setCurrentPage} email={email} lastNameUser={lastNameUser} nameUser={nameUser}/>
+                    <Sidebar setCurrentPage={setCurrentPage} email={email} lastNameUser={lastNameUser} nameUser={nameUser} userPhotoURL={userPhotoURL}/>
                 </div>
                 
                 <div className="flex-1 flex flex-col m-3"> 
@@ -65,7 +65,7 @@ function Home() {
                         <TopBar titulo={nTitulo ? nTitulo : hTitulo}/>
                     </div>
                     <div className="flex-1 overflow-x-hidden overflow-y-scroll"> 
-                        {PageComponent ? <PageComponent /> : <GroupCardsSong/>}
+                        {PageComponent ? <PageComponent email={email} userPhotoURL={userPhotoURL}/> : <GroupCardsSong email={email}/>}
                     </div>
                     <div className="h-[86px]">
                         <Player3/>

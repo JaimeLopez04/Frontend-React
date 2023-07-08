@@ -1,7 +1,67 @@
 import BeatLabLogotipo from "../../assets/BeatLabLogotipo.webp"
 import BeatLabLogo from "../../assets/BeatLabLogo.webp"
+import { apiUrl } from "../../api/apiurl";
+import axios from "axios";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const EnterCode = () => {
+    const [token, setToken] = useState('')
+
+    const navigate = useNavigate();
+
+    const MySwal = withReactContent(Swal)
+
+    const sentToken = (e) => {
+
+        e.preventDefault()
+
+        if (token.length === 0) {
+            MySwal.fire({
+                icon: 'error',
+                title: 'El campo de correo no puede estar vacio',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
+        } else {
+
+            let url = apiUrl + 'confirmToken'
+            axios.post(url, {
+                Headers: {'Content-Type' : 'application/json'},
+                token: token
+                }
+            ).then(function(response){
+                console.log(response);
+
+                if (response.data.correctToken === token) {
+                    // navigate('/recoveryPassword')
+                    MySwal.fire({
+                        icon: 'success',
+                        title: 'Token validado con exito',
+                        showConfirmButton: false,
+                        timer: 1700
+                    })
+                    } 
+                
+                else {
+                    MySwal.fire({
+                        icon: 'error',
+                        title: 'El token no coincide con el enviado a su correo',
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
+                    }
+                }
+            ).catch(function(error){
+
+                console.log('Falla', error);
+                }
+            )
+        }
+    }
+
     return (
         <div className="flex w-full h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple via-purple-900 to-black">
             <div className="w-full flex items-center justify-center lg:w-1/2">
@@ -20,8 +80,10 @@ const EnterCode = () => {
                                 <input 
                                     className='w-full border-b border-gray-700 rounded-md p-2 mt-1 bg-transparent focus:outline-none focus:outline-purple2 focus:outline-1'
                                     placeholder="Ingresa codigo de verificación"
-                                    name='codigo'
+                                    name='token'
                                     type="number"
+                                    value={token}
+                                    onChange={(e) => setToken(e.target.value)}
                                 />
                             </div>
                             
@@ -30,7 +92,8 @@ const EnterCode = () => {
                             <button 
                                 className='active:scale-[.98] active:duration-75 transition-all hover:scale-[1.05]  ease-in-out transform py-2 bg-violet-500 rounded-xl text-white font-bold text-lg'
                                 type='submit'
-                                form='form-login'>
+                                onClick={sentToken}
+                                >
                                     Confirmar
                             </button>
                         </div>

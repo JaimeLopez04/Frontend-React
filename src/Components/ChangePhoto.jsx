@@ -1,9 +1,8 @@
 import photo from "../assets/photo.jpg";
-import user from "../assets/user.jpg";
 import ChangePhotoModal from "./modalWindow/ChangePhotoModal";
 import { useState } from "react";
 
-function ChangePhoto (){
+function ChangePhoto (props){
   const [showMyModal, setShowMyModal] = useState(false);
   const handleOnClose = () => setShowMyModal(false);
 
@@ -12,7 +11,7 @@ function ChangePhoto (){
       <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:h-24 md:flex-row md:max-w-3xl  dark:border-gray-700 dark:bg-transparent  ">
         <img
           className="object-cover w-full rounded-t-lg h-96 md:h-24 md:w-24 md:rounded-none md:rounded-l-lg"
-          src={user}
+          src={props.userPhotoURL}
           alt=""
         />
         <div className="flex flex-col  justify-between leading-normal mr-44">
@@ -33,9 +32,9 @@ function ChangePhoto (){
         </div>
       </div>
 
-      <ChangePhotoModal onClose={handleOnClose} visible={showMyModal} />
+      <ChangePhotoModal onClose={handleOnClose} visible={showMyModal} email={props.email}/>
     </div>
   );
-};
+}
 
 export default ChangePhoto;
