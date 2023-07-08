@@ -31,7 +31,9 @@ const GroupCardsSong = ({email}) => {
     return (
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
             {arraySongs.map((song) => ( 
-                <CardSong key={song.id} title={song.title} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite}email={email} />
+                <button key={song.id}>
+                    <CardSong key={song.id} title={song.title} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite}email={email} />
+                </button>
             ))} 
         </div>
     )

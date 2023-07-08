@@ -1,10 +1,11 @@
 import { FaPlus } from 'react-icons/fa'
 import { BsMusicNoteList, BsPen, BsTrash } from 'react-icons/bs'
-import {ListSong} from './ListSong'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddSongModal from '../modalWindow/AddSongModal';
 import DeleteSongModal from '../modalWindow/DeleteSongModal';
 import EditSongModal from '../modalWindow/EditSongModal';
+import axios from 'axios';
+import { apiUrl } from '../../api/apiurl';
 
 function MyList(props){
     //Ventana Modal Editar Canción
@@ -17,6 +18,31 @@ function MyList(props){
 
     const [showMyModal, setShowMyModal] = useState(false);
     const handleOnClose = () => setShowMyModal(false);
+
+    const [arraySongs, setArraySongs] = useState([]);
+    const sendEmail = props.email
+
+    useEffect(() => {
+        axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+        let url = apiUrl + 'songs';
+        axios.get(url, {
+            params:{
+                user: sendEmail
+            },
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        .then(function (response) {
+            const arraySongs = response.data.SongsAll;
+            setArraySongs(arraySongs);
+        })
+        .catch(function (error) {
+            console.log(error, 'error');
+        });
+    },[]);
+
     return (
         <div className='p-3'>
             <div className="flex justify-between items-center">
@@ -29,14 +55,14 @@ function MyList(props){
                 </button>
             </div>
             <div className=' mt-4 w-full '>
-                {ListSong.map((list) => {
+                {arraySongs.map((song) => {
                     return(
-                    <div className="relative flex justify-between items-center mt-1 hover:bg-purple hover:bg-opacity-20 rounded-lg transition-all duration-300 p-3" key={list.id}>
+                    <div key={song.id} className="relative flex justify-between items-center mt-1 hover:bg-purple hover:bg-opacity-20 rounded-lg transition-all duration-300 p-3">
                         <i className='text-lg mr-4'>
                             <BsMusicNoteList />
                         </i>
                         <p>
-                            {list.name}
+                            {song.title}
                         </p>
                         <i className='ml-auto justify-between items-center flex'>
                             <button onClick={() => setShowMyModal2(true)}>

@@ -46,9 +46,9 @@ const Form = () => {
             })
             .then(function (response) {
                 if (response.data.LoginSuccessfull){
-                    const { email, lastNameUser, nameUser
+                    const { email, lastNameUser, nameUser, userPhotoURL
                      } = response.data.LoginSuccessfull
-                    navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser }})
+                    navigate("/home", {state: { email: email, lastNameUser: lastNameUser, nameUser: nameUser, userPhotoURL: userPhotoURL }})
                 }else {          
                     navigate("/")
                     MySwal.fire({

@@ -50,7 +50,15 @@ const FormRegistro = () => {
                 background:"#E8E5F1",
                 color: "#000" 
             })
-        } else {
+        } else if (passwordsMatch === false) {
+            MySwal.fire({
+              icon: 'error',
+              title: 'Las contraseñas no coinciden',
+              background: '#E8E5F1',
+              color: '#000',
+            });
+        }
+        else {
             let url = apiUrl + 'register'
             axios.defaults.headers.post['Content-Type'] = 'application/json';
             axios.post(url, {
@@ -182,14 +190,6 @@ const FormRegistro = () => {
                     </button>
                 </div>
             </div>
-            {!passwordsMatch && (
-                    MySwal.fire({
-                        icon: 'error',
-                        title: 'Las contraseñas no coinciden',
-                        background:"#E8E5F1",
-                        color: "#000" 
-                    })
-                ) }
         </div>
     );
 };

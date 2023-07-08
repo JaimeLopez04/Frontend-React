@@ -1,14 +1,83 @@
+import axios from "axios";
+import { apiUrl } from "../../api/apiurl";
 import close from "../../assets/close.png"
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
-const ChangePhotoModal = ({visible, onClose}) => {
+const ChangePhotoModal = ({visible, onClose, email}) => {
+
+    const MySwal = withReactContent(Swal)
+
+    const [imagen,setImagen] = useState('');
+
     const handleOnClose = (e) => {
         if(e.target.id === 'container') onClose()
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setImagen(file);
+    };
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+
+        const formData = new FormData(); 
+        
+        formData.append('fileImage', imagen);
+
+        const isEmpty = formData.entries().next().done;
+
+        if(isEmpty){
+            console.log(formData);
+            MySwal.fire({
+                icon: 'error',
+                title: 'Debes añadir una imagen',
+                background:"#E8E5F1",
+                color: "#000" 
+            })
+
+        } else {
+
+            let url = apiUrl + 'uploadPhoto'
+
+            formData.append('fileImageUser', imagen);
+
+            axios.put(url, formData, {
+                headers:{ 'Content-Type' : 'multipart/form-data'},
+                params:{ user: email }
+            })
+            .then(function (response) {
+                if (response.data.PhotoUser === "Photo Uploaded Successful"){
+                    MySwal.fire({
+                        icon: 'success',
+                        title: 'Imagen actualizada satisfactoriamente',
+                        showConfirmButton: false,
+                        timer: 1600
+                    })
+                    if (!visible) return null;
+                }else {
+                    MySwal.fire({
+                        icon: 'error',
+                        title: 'Error al actualizar la imagen de perfil',
+                        background:"#E8E5F1",
+                        color: "#000" 
+                    })
+                    
+                }
+            })
+            .catch(function (error) {
+                console.log("Error", error);
+            });
+        }
+    }
+
     if (!visible) return null;
 
   return (
-    <div id='container' onClick={handleOnClose} className="fixed inset-0 bg-black bg-opacity-20 z-50 backdrop-blur-sm flex justify-center items-center">
+    <div id='container' onClick={ handleOnClose } className="fixed inset-0 bg-black bg-opacity-20 z-50 backdrop-blur-sm flex justify-center items-center">
         <div className="bg-purple2 bg-opacity-20 p-3 rounded-lg flex flex-col justify-center items-center">
             <div className="p-2">
             <div className="flex flex-row">
@@ -22,12 +91,17 @@ const ChangePhotoModal = ({visible, onClose}) => {
                 <div className="flex flex-col">
                     <input type="file" id="archivo" accept="image/*"
                     className="m-2 w-96 ml-2 h-11 border-b border-purple2 border-opacity-40 rounded-md p-2 mt-1 bg-transparent  focus:outline-none focus:outline-purple2 focus:outline-1"
-                    placeholder="">                        
+                    placeholder=""
+                    name="image"
+                    onChange={ handleImageChange }
+                    >                        
                     </input>
                 </div>
             </div>
             <div className="">
-                <button className="col-span-1 bg-transparent hover:bg-purple2 border border-purple2 px-6 py-2 rounded-md">
+                <button className="col-span-1 bg-transparent hover:bg-purple2 border border-purple2 px-6 py-2 rounded-md"
+                onClick={ handleSubmit }
+                >
                     Guardar
                 </button>
             </div>

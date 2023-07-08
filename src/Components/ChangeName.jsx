@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ChangeNameModal from "./modalWindow/ChangeNameModal"
 
 
-const ChangeName = () => {
+const ChangeName = (props) => {
   const [showMyModal, setShowMyModal] = useState(false);
   const handleOnClose = () => setShowMyModal(false);
 
@@ -35,7 +35,7 @@ const ChangeName = () => {
             </div>
         </div>
 
-        <ChangeNameModal onClose={handleOnClose} visible={showMyModal}/>
+        <ChangeNameModal onClose={handleOnClose} visible={showMyModal} email={props.email}/>
 
 
 
