@@ -42,19 +42,23 @@ const GroupCardsSong = ({email, onGoBack, fromGenresCards, setCurrentSong}) => {
 
     return (
         <>
-        {fromGenresCards && (
-            <button className='bg-fuchsia-950/80 p-1 flex justify-between items-center relative rounded-md' onClick={handleGoBack}>
-                <BsChevronDoubleLeft className='mr-2'/>
-                Volver
-            </button>
-        )}
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
-            {arraySongs.map((song) => ( 
-                <button key={song.id} onClick={ () => handleSongClick(song) }>
-                    <CardSong key={song.id} title={song.title}  handleSongClick={handleSongClick} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite} email={email} />
+            {fromGenresCards && (
+                <button className='bg-fuchsia-950/80 p-1 flex justify-between items-center relative rounded-md' onClick={handleGoBack}>
+                    <BsChevronDoubleLeft className='mr-2'/>
+                    Volver
                 </button>
-            ))} 
-        </div>
+            )}
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4 md:grid-cols-3">
+                {!arraySongs ? ( 
+                    <h1>No hay canciones disponibles</h1>
+                ) : (
+                    arraySongs.map((song) => (
+                        <button key={song.id} onClick={ () => handleSongClick(song) }>
+                            <CardSong key={song.id} title={song.title}  handleSongClick={handleSongClick} artist={song.artist} gender={song.gender} imageSongURL={song.imageSongURL} favorite={song.favorite} email={email} />
+                        </button>
+                    ))
+                )}
+            </div>
         </>
     )
 }

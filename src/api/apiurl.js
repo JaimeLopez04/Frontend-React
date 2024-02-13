@@ -1,1 +1,1 @@
-export const apiUrl = "https://beatlabapi-1s55.onrender.com/";
+export const apiUrl = "http://127.0.0.1:5173/";

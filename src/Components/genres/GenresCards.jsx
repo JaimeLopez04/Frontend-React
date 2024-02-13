@@ -21,11 +21,6 @@ const GenresCards = ({ email }) => {
     });
     filtrarGenero(genres[index]);
   };
-  
-  
-  const sendEmail = email
-
-  console.log(email);
 
     const filtrarGenero = (genero) => {
 
@@ -39,6 +34,8 @@ const GenresCards = ({ email }) => {
       const body = { gender : genero.text}
 
       let url = apiUrl + 'songs/searchGender';
+
+      const sendEmail = email
       
       axios.get(url, {
         params: { user: sendEmail },

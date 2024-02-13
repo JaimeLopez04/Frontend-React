@@ -6,6 +6,7 @@ import { BsMusicNoteBeamed } from 'react-icons/bs';
 import { FaUser } from 'react-icons/fa';
 import { BsHouseFill } from 'react-icons/bs';
 
+
 export const datas = [
   {
     id: 1,
